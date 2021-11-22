@@ -1,0 +1,12 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\FileSharer.Common\FileSharer.Common.csproj" />
+    <ProjectReference Include="..\FileSharer.Data\FileSharer.Data.csproj" />
+  </ItemGroup>
+
+</Project>
