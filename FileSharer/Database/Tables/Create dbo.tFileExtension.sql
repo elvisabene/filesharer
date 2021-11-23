@@ -1,0 +1,5 @@
+CREATE TABLE dbo.tFileExtension
+(
+    Id INT IDENTITY PRIMARY KEY,
+    Name NVARCHAR(50) NOT NULL
+);
