@@ -1,1 +1,1 @@
-CREATE DATABASE filesharerdb
+CREATE DATABASE FileSharerDb
