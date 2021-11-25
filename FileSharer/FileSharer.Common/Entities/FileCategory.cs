@@ -1,6 +1,9 @@
-public class FileCategory
+namespace FileSharer.Common.Entities
 {
-    public int Id { get; set; }
-
-    public string Name { get; set; }
+    public class FileCategory
+    {
+        public int Id { get; set; }
+        
+        public string Name { get; set; }
+    }
 }

@@ -1,8 +1,12 @@
+using FileSharer.Common.Entities;
 using System.Collections.Generic;
 
-public interface IUserRepository : IRepository<User>
+namespace FileSharer.Data.Repositories.Interfaces
 {
-    User GetByEmail(string email);
+    public interface IUserRepository : IRepository<User>
+    {
+        User GetByEmail(string email);
 
-    IEnumerable<User> GetAllByName(string name);
+        IEnumerable<User> GetAllByName(string name);
+    }
 }

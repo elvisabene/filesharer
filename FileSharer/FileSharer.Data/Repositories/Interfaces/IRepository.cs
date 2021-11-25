@@ -1,14 +1,17 @@
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 
-public interface IRepository<T>
+namespace FileSharer.Data.Repositories.Interfaces
 {
-    void Add(T item);
+    public interface IRepository<T>
+    {
+        void Add(T item);
 
-    IEnumerable<T> GetAll();
+        IEnumerable<T> GetAll();
 
-    T GetById(int id);
+        T GetById(int id);
 
-    void Update(int id, T newItem);
+        void Update(int id, T newItem);
 
-    void Delete(int id);
+        void Delete(int id);
+    }
 }

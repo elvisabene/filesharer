@@ -1,6 +1,9 @@
-public class FileExtension
+namespace FileSharer.Common.Entities
 {
-    public int Id { get; set; }
+    public class FileExtension
+    {
+        public int Id { get; set; }
 
-    public string Name { get; set; }
+        public string Name { get; set; }
+    }
 }

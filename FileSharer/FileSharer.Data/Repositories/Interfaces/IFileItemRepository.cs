@@ -1,8 +1,12 @@
+﻿using FileSharer.Common.Entities;
 using System.Collections.Generic;
 
-public interface IFileItemRepository : IRepository<FileItem>
+namespace FileSharer.Data.Repositories.Interfaces
 {
-    IEnumerable<FileItem> GetAllByUserId(int userId);
+    public interface IFileItemRepository
+    {
+        IEnumerable<FileItem> GetAllByUserId(int userId);
 
-    IEnumerable<FileItem> GetAllByCategoryId(int categoryId);
+        IEnumerable<FileItem> GetAllByCategoryId(int categoryId);
+    }
 }
