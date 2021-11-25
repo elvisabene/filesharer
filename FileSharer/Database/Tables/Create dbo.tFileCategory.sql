@@ -1,5 +1,5 @@
 CREATE TABLE dbo.tFileCategory
 (
     Id INT IDENTITY PRIMARY KEY,
-    Name NVARCHAR(50) NOT NULL
+    Name NVARCHAR(50) NOT NULL,
 );

@@ -2,7 +2,7 @@ CREATE TABLE dbo.tUser
 (
     Id INT IDENTITY PRIMARY KEY,
     Name NVARCHAR(50) NOT NULL,
-    RoleId INT REFERENCES dbo.tRole(Id),
-    Email NVARCHAR(100),
-    Password NVARCHAR(100)
+    RoleId INT REFERENCES dbo.tRole(Id) NOT NULL,
+    Email NVARCHAR(50) NOT NULL,
+    PasswordHash NVARCHAR(100) NOT NULL,
 );
