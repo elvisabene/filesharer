@@ -15,6 +15,6 @@ BEGIN
         SET Name = @name,
             RoleId = @roleId,
             Email = @email,
-            PassworHash = @passwordHash
+            PasswordHash = @passwordHash
         WHERE Id = @id
 END
