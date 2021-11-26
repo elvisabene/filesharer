@@ -4,7 +4,7 @@ using System.Text;
 
 namespace FileSharer.Data.Database
 {
-    public class DatabaseSettings
+    public class DatabaseSettings : IDatabaseSettings
     {
         public string ConnectionString { get; }
 

@@ -9,7 +9,7 @@ namespace FileSharer.Data.Dependency
     {
         public static IServiceCollection AddDal(this IServiceCollection services, string dbConnectionString)
         {
-            services.AddSingleton(new DatabaseSettings(dbConnectionString));
+            services.AddSingleton<IDatabaseSettings>(new DatabaseSettings(dbConnectionString));
             services.AddSingleton<IUserRepository, UserRepository>();
             services.AddSingleton<IFileItemRepository, FileItemRepository>();
 
