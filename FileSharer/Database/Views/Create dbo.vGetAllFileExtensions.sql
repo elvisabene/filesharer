@@ -1,2 +1,3 @@
 CREATE VIEW dbo.vGetAllFileExtensions AS
-SELECT * FROM dbo.tFileExtension;
+SELECT fe.Id, fe.Name
+FROM dbo.tFileExtension AS fe;

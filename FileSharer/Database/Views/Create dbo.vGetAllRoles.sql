@@ -1,2 +1,3 @@
 CREATE VIEW dbo.vGetAllRoles AS
-SELECT * FROM dbo.tRole;
+SELECT r.Id, r.Name
+FROM dbo.tRole AS r;
