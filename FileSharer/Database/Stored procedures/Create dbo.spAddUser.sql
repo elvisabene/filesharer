@@ -5,6 +5,10 @@ CREATE PROCEDURE dbo.spAddUser
     @passwordHash NVARCHAR(100)
 AS
 BEGIN
-    INSERT INTO dbo.tUser(Name, RoleId, Email, PasswordHash)
-    VALUES(@name, @roleId, @email, @passwordHash)
+    IF @name IS NULL OR @roleId IS NULL
+            OR @email IS NULL OR @passwordHash IS NULL
+            THROW 50000, 'Arguments was null!', 1
+    ELSE
+        INSERT INTO dbo.tUser(Name, RoleId, Email, PasswordHash)
+        VALUES(@name, @roleId, @email, @passwordHash)
 END
