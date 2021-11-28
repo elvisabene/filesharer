@@ -1,8 +1,8 @@
 ﻿using FileSharer.Common.Constants;
 using FileSharer.Common.Entities;
 using FileSharer.Data.Database;
+using FileSharer.Data.DataConverters;
 using FileSharer.Data.Repositories.Interfaces;
-using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
@@ -18,77 +18,122 @@ namespace FileSharer.Data.Repositories.Implementations
             _dbSettings = dbSettings;
         }
 
-        public void Add(FileItem file)
+        public void Add(FileItem fileItem)
         {
             using (SqlConnection connection = new SqlConnection(_dbSettings.ConnectionString))
             {
-                string sqlQuery = DatabaseConstants.StoredProcedureName.AddFileItem;
-                SqlCommand sqlCommand = new SqlCommand(sqlQuery, connection);
-                sqlCommand.CommandType = CommandType.StoredProcedure;
+                string query = DatabaseConstants.StoredProcedureName.AddFileItem;
+                SqlCommand command = new SqlCommand(query, connection);
+                command.CommandType = CommandType.StoredProcedure;
 
-                SqlParameter[] parameters =
-                {
-                    new SqlParameter()
-                    {
-                        ParameterName = "@name",
-                        Value = file.Name,
-                    },
-                    new SqlParameter()
-                    {
-                        ParameterName = "@fileExtensionId",
-                        Value = file.FileExtensionId
-                    },
-                    new SqlParameter()
-                    {
-                        ParameterName = "@description",
-                        Value = file.Description,
-                    },
-                    new SqlParameter()
-                    {
-                        ParameterName = "@userId",
-                        Value = file.UserId,
-                    },
-                    new SqlParameter()
-                    {
-                        ParameterName = "@fileCategoryId",
-                        Value = file.FileCategoryId,
-                    }
-                };
+                SqlParameter[] parameters = fileItem.ConvertToSqlParameters();
 
-                sqlCommand.Parameters.AddRange(parameters);
+                command.Parameters.AddRange(parameters);
                 connection.Open();
-                sqlCommand.ExecuteNonQuery();
+                command.ExecuteNonQuery();
             }
         }
 
         public void Delete(int id)
         {
-            throw new NotImplementedException();
+            string query = DatabaseConstants.StoredProcedureName.DeleteFileItem;
+
+            using (SqlConnection connection = new SqlConnection(_dbSettings.ConnectionString))
+            {
+                SqlCommand command = new SqlCommand(query, connection);
+                command.CommandType = CommandType.StoredProcedure;
+
+                command.Parameters.AddWithValue("@id", id);
+                connection.Open();
+                command.ExecuteNonQuery();
+            }
         }
 
         public IEnumerable<FileItem> GetAll()
         {
-            throw new NotImplementedException();
+            string view = DatabaseConstants.ViewName.AllFileItems;
+            string query = $"SELECT * FROM {view}";
+
+
+            using (SqlConnection connection = new SqlConnection(_dbSettings.ConnectionString))
+            {
+                SqlCommand command = new SqlCommand(query, connection);
+                connection.Open();
+                SqlDataReader dataReader = command.ExecuteReader();
+
+                IEnumerable<FileItem> fileItems = dataReader.ConvertToFileItemList();
+                return fileItems;
+            }
         }
 
         public IEnumerable<FileItem> GetAllByCategoryId(int categoryId)
         {
-            throw new NotImplementedException();
+            string view = DatabaseConstants.ViewName.AllFileItems;
+            string query = $"SELECT * FROM {view}" +
+                           $"WHERE CategoryId = @categoryId";
+            ;
+
+            using (SqlConnection connection = new SqlConnection(_dbSettings.ConnectionString))
+            {
+                SqlCommand command = new SqlCommand(query, connection);
+                command.Parameters.AddWithValue("@categoryId", categoryId);
+                connection.Open();
+                SqlDataReader dataReader = command.ExecuteReader();
+                IEnumerable<FileItem> fileItems = dataReader.ConvertToFileItemList();
+
+                return fileItems;
+            }
         }
 
         public IEnumerable<FileItem> GetAllByUserId(int userId)
         {
-            throw new NotImplementedException();
+            string view = DatabaseConstants.ViewName.AllFileItems;
+            string query = $"SELECT * FROM {view}" +
+                           $"WHERE CategoryId = @categoryId";
+
+            using (SqlConnection connection = new SqlConnection(_dbSettings.ConnectionString))
+            {
+                SqlCommand command = new SqlCommand(query, connection);
+                command.Parameters.AddWithValue("@userId", userId);
+                connection.Open();
+                SqlDataReader dataReader = command.ExecuteReader();
+                IEnumerable<FileItem> fileItems = dataReader.ConvertToFileItemList();
+
+                return fileItems;
+            }
         }
 
         public FileItem GetById(int id)
         {
-            throw new NotImplementedException();
+            string view = DatabaseConstants.ViewName.AllFileItems;
+            string query = $"SELECT * FROM {view}" +
+                           $"WHERE CategoryId = @categoryId";
+
+            using (SqlConnection connection = new SqlConnection(_dbSettings.ConnectionString))
+            {
+                SqlCommand command = new SqlCommand(query, connection);
+                command.Parameters.AddWithValue("@id", id);
+                connection.Open();
+                SqlDataReader dataReader = command.ExecuteReader();
+                FileItem fileItem = dataReader.ConvertToFileItem();
+
+                return fileItem;
+            }
         }
 
-        public void Update(int id, FileItem newItem)
+        public void Update(int id, FileItem newFileItem)
         {
-            throw new NotImplementedException();
+            string query = DatabaseConstants.StoredProcedureName.DeleteFileItem;
+
+            using (SqlConnection connection = new SqlConnection(_dbSettings.ConnectionString))
+            {
+                SqlCommand command = new SqlCommand(query, connection);
+                SqlParameter[] parameters = newFileItem.ConvertToSqlParameters();
+                command.Parameters.AddWithValue("@id", id);
+                command.Parameters.AddRange(parameters);
+
+                command.ExecuteNonQuery();
+            }
         }
     }
 }
