@@ -71,7 +71,6 @@ namespace FileSharer.Data.Repositories.Implementations
             string view = DatabaseConstants.ViewName.AllFileItems;
             string query = $"SELECT * FROM {view}" +
                            $"WHERE CategoryId = @categoryId";
-            ;
 
             using (SqlConnection connection = new SqlConnection(_dbSettings.ConnectionString))
             {
