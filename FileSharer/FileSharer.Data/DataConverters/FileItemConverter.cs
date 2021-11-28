@@ -20,14 +20,15 @@ namespace FileSharer.Data.DataConverters
                 throw new ArgumentException();
             }
 
-            dataReader.Read();
-
             FileItem fileItem = new FileItem()
             {
                 Id = (int)dataReader["Id"],
                 Name = (string)dataReader["Name"],
                 FileExtensionId = (int)dataReader["FileExtensionId"],
-                Description = (string)dataReader["Description"] ?? string.Empty,
+
+                Description = dataReader["Description"] == DBNull.Value ?
+                    string.Empty : (string)dataReader["Description"],
+
                 UserId = (int)dataReader["UserId"],
                 FileCategoryId = (int)dataReader["UserId"],
             };
