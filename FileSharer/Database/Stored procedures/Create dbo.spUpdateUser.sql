@@ -7,9 +7,9 @@ CREATE PROCEDURE dbo.spUpdateUser
 AS
 BEGIN
     IF @id IS NULL OR @name IS NULL
-        OR @roleId IS NULL OR @email IS NULL
-        OR @passwordHash IS NULL
-        THROW 50000, 'Arguments was null!', 1
+        OR NOT EXISTS(SELECT * FROM dbo.tRole WHERE Id = @roleId)
+        OR @roleId IS NULL OR @email IS NULL OR @passwordHash IS NULL
+        THROW 50000, 'Arguments was null or not existing!', 1
     ELSE
         UPDATE dbo.tUser
         SET Name = @name,
