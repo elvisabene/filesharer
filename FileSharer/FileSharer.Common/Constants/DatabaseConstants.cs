@@ -7,6 +7,8 @@
             public const string AddFileItem = "dbo.spAddFileItem";
 
             public const string DeleteFileItem = "dbo.spDeleteFileItem";
+
+            public const string UpdateFileItem = "dbo.spUpdateFileItem";
         }
 
         public static class ViewName

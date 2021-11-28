@@ -122,7 +122,7 @@ namespace FileSharer.Data.Repositories.Implementations
 
         public void Update(int id, FileItem newFileItem)
         {
-            string query = DatabaseConstants.StoredProcedureName.DeleteFileItem;
+            string query = DatabaseConstants.StoredProcedureName.UpdateFileItem;
 
             using (SqlConnection connection = new SqlConnection(_dbSettings.ConnectionString))
             {
