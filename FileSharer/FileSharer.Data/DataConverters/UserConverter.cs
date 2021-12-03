@@ -6,9 +6,9 @@ using System.Data.SqlClient;
 
 namespace FileSharer.Data.DataConverters
 {
-    public static class UserConverter
+    public class UserConverter : IDataConverter<User>
     {
-        public static User ConvertToUser(this SqlDataReader reader, bool withRead = true)
+        public User ConvertToSingleItem(SqlDataReader reader, bool withRead = true)
         {
             if (reader is null)
             {
@@ -37,7 +37,7 @@ namespace FileSharer.Data.DataConverters
             return user;
         }
 
-        public static IEnumerable<User> ConvertToUserList(this SqlDataReader reader)
+        public IEnumerable<User> ConvertToItemList(SqlDataReader reader)
         {
             if (reader is null)
             {
@@ -53,14 +53,14 @@ namespace FileSharer.Data.DataConverters
 
             while (reader.Read())
             {
-                var user = reader.ConvertToUser(false);
+                var user = ConvertToSingleItem(reader, false);
                 users.Add(user);
             }
 
             return users;
         }
 
-        public static SqlParameter[] ConvertToSqlParameters(this User user)
+        public SqlParameter[] ConvertToSqlParameters(User user)
         {
             if (user is null)
             {

@@ -3,7 +3,6 @@ using FileSharer.Common.Entities;
 using FileSharer.Data.DataConverters;
 using FileSharer.Data.Infrastructure;
 using FileSharer.Data.Repositories.Interfaces;
-using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
@@ -14,15 +13,18 @@ namespace FileSharer.Data.Repositories.Implementations
     {
         private IDataContext _dataContext;
 
-        public UserRepository(IDataContext dataContext)
+        private IDataConverter<User> _converter;
+
+        public UserRepository(IDataContext dataContext, IDataConverter<User> converter)
         {
             _dataContext = dataContext;
+            _converter = converter;
         }
 
         public void Add(User user)
         {
             string procedure = DatabaseConstants.StoredProcedureName.AddUser;
-            SqlParameter[] parameters = user.ConvertToSqlParameters();
+            SqlParameter[] parameters = _converter.ConvertToSqlParameters(user);
 
             SqlCommand command = new SqlCommand(procedure);
             command.CommandType = CommandType.StoredProcedure;
@@ -49,8 +51,7 @@ namespace FileSharer.Data.Repositories.Implementations
 
             SqlCommand command = new SqlCommand(query);
 
-            using SqlDataReader reader = _dataContext.ExecuteQuery(command);
-            var users = reader.ConvertToUserList();
+            var users = _dataContext.ExecuteQueryAsList(command, _converter);
 
             return users;
         }
@@ -64,8 +65,7 @@ namespace FileSharer.Data.Repositories.Implementations
             SqlCommand command = new SqlCommand(query);
             command.Parameters.AddWithValue("@name", name);
 
-            using SqlDataReader reader = _dataContext.ExecuteQuery(command);
-            var users = reader.ConvertToUserList();
+            var users = _dataContext.ExecuteQueryAsList(command, _converter);
 
             return users;
         }
@@ -79,8 +79,7 @@ namespace FileSharer.Data.Repositories.Implementations
             SqlCommand command = new SqlCommand(query);
             command.Parameters.AddWithValue("@email", email);
 
-            using SqlDataReader reader = _dataContext.ExecuteQuery(command);
-            var user = reader.ConvertToUser();
+            var user = _dataContext.ExecuteQueryAsSingle(command, _converter);
 
             return user;
         }
@@ -94,8 +93,7 @@ namespace FileSharer.Data.Repositories.Implementations
             SqlCommand command = new SqlCommand(query);
             command.Parameters.AddWithValue("@id", id);
 
-            using SqlDataReader reader = _dataContext.ExecuteQuery(command);
-            var user = reader.ConvertToUser();
+            var user = _dataContext.ExecuteQueryAsSingle(command, _converter);
 
             return user;
         }
@@ -103,7 +101,7 @@ namespace FileSharer.Data.Repositories.Implementations
         public void Update(int id, User newUser)
         {
             string procedure = DatabaseConstants.StoredProcedureName.UpdateUser;
-            SqlParameter[] parameters = newUser.ConvertToSqlParameters();
+            SqlParameter[] parameters = _converter.ConvertToSqlParameters(newUser);
 
             SqlCommand command = new SqlCommand(procedure);
             command.CommandType = CommandType.StoredProcedure;

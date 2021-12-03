@@ -1,8 +1,7 @@
 ﻿using FileSharer.Data.Database;
-using System;
+using FileSharer.Data.DataConverters;
 using System.Collections.Generic;
 using System.Data.SqlClient;
-using System.Text;
 
 namespace FileSharer.Data.Infrastructure
 {
@@ -25,7 +24,7 @@ namespace FileSharer.Data.Infrastructure
             }
         }
 
-        public SqlDataReader ExecuteQuery(SqlCommand command)
+        public T ExecuteQueryAsSingle<T>(SqlCommand command, IDataConverter<T> converter)
         {
             using (SqlConnection connection = new SqlConnection(_dbSettings.ConnectionString))
             {
@@ -33,7 +32,23 @@ namespace FileSharer.Data.Infrastructure
                 connection.Open();
                 SqlDataReader reader = command.ExecuteReader();
 
-                return reader;
+                T item = converter.ConvertToSingleItem(reader);
+
+                return item;
+            }
+        }
+
+        public IEnumerable<T> ExecuteQueryAsList<T>(SqlCommand command, IDataConverter<T> converter)
+        {
+            using (SqlConnection connection = new SqlConnection(_dbSettings.ConnectionString))
+            {
+                command.Connection = connection;
+                connection.Open();
+                SqlDataReader reader = command.ExecuteReader();
+
+                IEnumerable<T> items = converter.ConvertToItemList(reader);
+
+                return items;
             }
         }
     }

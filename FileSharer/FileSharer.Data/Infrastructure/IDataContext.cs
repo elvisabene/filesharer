@@ -1,7 +1,6 @@
-﻿using System;
+﻿using FileSharer.Data.DataConverters;
 using System.Collections.Generic;
 using System.Data.SqlClient;
-using System.Text;
 
 namespace FileSharer.Data.Infrastructure
 {
@@ -9,6 +8,8 @@ namespace FileSharer.Data.Infrastructure
     {
         void ExecuteNonQuery(SqlCommand command);
 
-        SqlDataReader ExecuteQuery(SqlCommand command);
+        T ExecuteQueryAsSingle<T>(SqlCommand command, IDataConverter<T> converter);
+
+        IEnumerable<T> ExecuteQueryAsList<T>(SqlCommand command, IDataConverter<T> converter);
     }
 }

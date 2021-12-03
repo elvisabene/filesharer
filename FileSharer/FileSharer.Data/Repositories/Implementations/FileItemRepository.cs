@@ -13,15 +13,18 @@ namespace FileSharer.Data.Repositories.Implementations
     {
         private readonly IDataContext _dataContext;
 
-        public FileItemRepository(IDataContext dataContext)
+        private readonly IDataConverter<FileItem> _converter;
+
+        public FileItemRepository(IDataContext dataContext, IDataConverter<FileItem> converter)
         {
             _dataContext = dataContext;
+            _converter = converter;
         }
 
         public void Add(FileItem fileItem)
         {
             string procedure = DatabaseConstants.StoredProcedureName.AddFileItem;
-            SqlParameter[] parameters = fileItem.ConvertToSqlParameters();
+            SqlParameter[] parameters = _converter.ConvertToSqlParameters(fileItem);
 
             SqlCommand command = new SqlCommand(procedure);
             command.CommandType = CommandType.StoredProcedure;
@@ -48,11 +51,9 @@ namespace FileSharer.Data.Repositories.Implementations
 
             SqlCommand command = new SqlCommand(query);
 
-            using SqlDataReader reader = _dataContext.ExecuteQuery(command);
-            var fileItems = reader.ConvertToFileItemList();
+            var fileItems = _dataContext.ExecuteQueryAsList(command, _converter);
 
             return fileItems;
-
         }
 
         public IEnumerable<FileItem> GetAllByCategoryId(int categoryId)
@@ -63,9 +64,8 @@ namespace FileSharer.Data.Repositories.Implementations
 
             SqlCommand command = new SqlCommand(query);
             command.Parameters.AddWithValue("@categoryId", categoryId);
-
-            using SqlDataReader reader = _dataContext.ExecuteQuery(command);
-            var fileItems = reader.ConvertToFileItemList();
+            
+            var fileItems = _dataContext.ExecuteQueryAsList(command, _converter);
 
             return fileItems;
         }
@@ -79,8 +79,7 @@ namespace FileSharer.Data.Repositories.Implementations
             SqlCommand command = new SqlCommand(query);
             command.Parameters.AddWithValue("@userId", userId);
 
-            using SqlDataReader reader = _dataContext.ExecuteQuery(command);
-            var fileItems = reader.ConvertToFileItemList();
+            var fileItems = _dataContext.ExecuteQueryAsList(command, _converter);
 
             return fileItems;
         }
@@ -89,13 +88,12 @@ namespace FileSharer.Data.Repositories.Implementations
         {
             string view = DatabaseConstants.ViewName.AllFileItems;
             string query = $"SELECT * FROM {view}" +
-                           $"WHERE CategoryId = @categoryId";
+                           $"WHERE Id = @id";
 
             SqlCommand command = new SqlCommand(query);
             command.Parameters.AddWithValue("@id", id);
 
-            using SqlDataReader reader = _dataContext.ExecuteQuery(command);
-            var fileItem = reader.ConvertToFileItem();
+            var fileItem = _dataContext.ExecuteQueryAsSingle(command, _converter);
 
             return fileItem;
         }
@@ -103,7 +101,7 @@ namespace FileSharer.Data.Repositories.Implementations
         public void Update(int id, FileItem newFileItem)
         {
             string procedure = DatabaseConstants.StoredProcedureName.UpdateFileItem;
-            SqlParameter[] parameters = newFileItem.ConvertToSqlParameters();
+            SqlParameter[] parameters = _converter.ConvertToSqlParameters(newFileItem);
 
             SqlCommand command = new SqlCommand(procedure);
             command.Parameters.AddWithValue("@id", id);
