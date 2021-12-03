@@ -1,7 +1,7 @@
 ﻿using FileSharer.Common.Constants;
 using FileSharer.Common.Entities;
-using FileSharer.Data.Database;
 using FileSharer.Data.DataConverters;
+using FileSharer.Data.Infrastructure;
 using FileSharer.Data.Repositories.Interfaces;
 using System.Collections.Generic;
 using System.Data;
@@ -11,42 +11,34 @@ namespace FileSharer.Data.Repositories.Implementations
 {
     public class FileItemRepository : IFileItemRepository
     {
-        private readonly IDatabaseSettings _dbSettings;
+        private readonly IDataContext _dataContext;
 
-        public FileItemRepository(IDatabaseSettings dbSettings)
+        public FileItemRepository(IDataContext dataContext)
         {
-            _dbSettings = dbSettings;
+            _dataContext = dataContext;
         }
 
         public void Add(FileItem fileItem)
         {
-            using (SqlConnection connection = new SqlConnection(_dbSettings.ConnectionString))
-            {
-                string query = DatabaseConstants.StoredProcedureName.AddFileItem;
-                SqlCommand command = new SqlCommand(query, connection);
-                command.CommandType = CommandType.StoredProcedure;
+            string procedure = DatabaseConstants.StoredProcedureName.AddFileItem;
+            SqlParameter[] parameters = fileItem.ConvertToSqlParameters();
 
-                SqlParameter[] parameters = fileItem.ConvertToSqlParameters();
+            SqlCommand command = new SqlCommand(procedure);
+            command.CommandType = CommandType.StoredProcedure;
+            command.Parameters.AddRange(parameters);
 
-                command.Parameters.AddRange(parameters);
-                connection.Open();
-                command.ExecuteNonQuery();
-            }
+            _dataContext.ExecuteNonQuery(command);
         }
 
         public void Delete(int id)
         {
-            string query = DatabaseConstants.StoredProcedureName.DeleteFileItem;
+            string procedure = DatabaseConstants.StoredProcedureName.DeleteFileItem;
 
-            using (SqlConnection connection = new SqlConnection(_dbSettings.ConnectionString))
-            {
-                SqlCommand command = new SqlCommand(query, connection);
-                command.CommandType = CommandType.StoredProcedure;
+            SqlCommand command = new SqlCommand(procedure);
+            command.CommandType = CommandType.StoredProcedure;
+            command.Parameters.AddWithValue("@id", id);
 
-                command.Parameters.AddWithValue("@id", id);
-                connection.Open();
-                command.ExecuteNonQuery();
-            }
+            _dataContext.ExecuteNonQuery(command);
         }
 
         public IEnumerable<FileItem> GetAll()
@@ -54,16 +46,13 @@ namespace FileSharer.Data.Repositories.Implementations
             string view = DatabaseConstants.ViewName.AllFileItems;
             string query = $"SELECT * FROM {view}";
 
+            SqlCommand command = new SqlCommand(query);
 
-            using (SqlConnection connection = new SqlConnection(_dbSettings.ConnectionString))
-            {
-                SqlCommand command = new SqlCommand(query, connection);
-                connection.Open();
-                SqlDataReader dataReader = command.ExecuteReader();
+            using SqlDataReader reader = _dataContext.ExecuteQuery(command);
+            var fileItems = reader.ConvertToFileItemList();
 
-                IEnumerable<FileItem> fileItems = dataReader.ConvertToFileItemList();
-                return fileItems;
-            }
+            return fileItems;
+
         }
 
         public IEnumerable<FileItem> GetAllByCategoryId(int categoryId)
@@ -72,34 +61,28 @@ namespace FileSharer.Data.Repositories.Implementations
             string query = $"SELECT * FROM {view}" +
                            $"WHERE CategoryId = @categoryId";
 
-            using (SqlConnection connection = new SqlConnection(_dbSettings.ConnectionString))
-            {
-                SqlCommand command = new SqlCommand(query, connection);
-                command.Parameters.AddWithValue("@categoryId", categoryId);
-                connection.Open();
-                SqlDataReader dataReader = command.ExecuteReader();
-                IEnumerable<FileItem> fileItems = dataReader.ConvertToFileItemList();
+            SqlCommand command = new SqlCommand(query);
+            command.Parameters.AddWithValue("@categoryId", categoryId);
 
-                return fileItems;
-            }
+            using SqlDataReader reader = _dataContext.ExecuteQuery(command);
+            var fileItems = reader.ConvertToFileItemList();
+
+            return fileItems;
         }
 
         public IEnumerable<FileItem> GetAllByUserId(int userId)
         {
             string view = DatabaseConstants.ViewName.AllFileItems;
             string query = $"SELECT * FROM {view}" +
-                           $"WHERE CategoryId = @categoryId";
+                           $"WHERE UserId = @userId";
 
-            using (SqlConnection connection = new SqlConnection(_dbSettings.ConnectionString))
-            {
-                SqlCommand command = new SqlCommand(query, connection);
-                command.Parameters.AddWithValue("@userId", userId);
-                connection.Open();
-                SqlDataReader dataReader = command.ExecuteReader();
-                IEnumerable<FileItem> fileItems = dataReader.ConvertToFileItemList();
+            SqlCommand command = new SqlCommand(query);
+            command.Parameters.AddWithValue("@userId", userId);
 
-                return fileItems;
-            }
+            using SqlDataReader reader = _dataContext.ExecuteQuery(command);
+            var fileItems = reader.ConvertToFileItemList();
+
+            return fileItems;
         }
 
         public FileItem GetById(int id)
@@ -108,31 +91,25 @@ namespace FileSharer.Data.Repositories.Implementations
             string query = $"SELECT * FROM {view}" +
                            $"WHERE CategoryId = @categoryId";
 
-            using (SqlConnection connection = new SqlConnection(_dbSettings.ConnectionString))
-            {
-                SqlCommand command = new SqlCommand(query, connection);
-                command.Parameters.AddWithValue("@id", id);
-                connection.Open();
-                SqlDataReader dataReader = command.ExecuteReader();
-                FileItem fileItem = dataReader.ConvertToFileItem();
+            SqlCommand command = new SqlCommand(query);
+            command.Parameters.AddWithValue("@id", id);
 
-                return fileItem;
-            }
+            using SqlDataReader reader = _dataContext.ExecuteQuery(command);
+            var fileItem = reader.ConvertToFileItem();
+
+            return fileItem;
         }
 
         public void Update(int id, FileItem newFileItem)
         {
-            string query = DatabaseConstants.StoredProcedureName.UpdateFileItem;
+            string procedure = DatabaseConstants.StoredProcedureName.UpdateFileItem;
+            SqlParameter[] parameters = newFileItem.ConvertToSqlParameters();
 
-            using (SqlConnection connection = new SqlConnection(_dbSettings.ConnectionString))
-            {
-                SqlCommand command = new SqlCommand(query, connection);
-                SqlParameter[] parameters = newFileItem.ConvertToSqlParameters();
-                command.Parameters.AddWithValue("@id", id);
-                command.Parameters.AddRange(parameters);
+            SqlCommand command = new SqlCommand(procedure);
+            command.Parameters.AddWithValue("@id", id);
+            command.Parameters.AddRange(parameters);
 
-                command.ExecuteNonQuery();
-            }
+            _dataContext.ExecuteNonQuery(command);
         }
     }
 }

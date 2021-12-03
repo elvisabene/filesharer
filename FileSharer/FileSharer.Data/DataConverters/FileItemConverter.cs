@@ -8,51 +8,56 @@ namespace FileSharer.Data.DataConverters
 {
     public static class FileItemConverter
     {
-        public static FileItem ConvertToFileItem(this SqlDataReader dataReader)
+        public static FileItem ConvertToFileItem(this SqlDataReader reader, bool withRead = true)
         {
-            if (dataReader is null)
+            if (reader is null)
             {
-                throw new ArgumentNullException(nameof(dataReader));
+                throw new ArgumentNullException(nameof(reader));
             }
 
-            if (!dataReader.HasRows)
+            if (!reader.HasRows)
             {
                 throw new ArgumentException();
             }
 
+            if (withRead)
+            {
+                reader.Read();
+            }
+
             FileItem fileItem = new FileItem()
             {
-                Id = (int)dataReader["Id"],
-                Name = (string)dataReader["Name"],
-                FileExtensionId = (int)dataReader["FileExtensionId"],
+                Id = (int)reader["Id"],
+                Name = (string)reader["Name"],
+                FileExtensionId = (int)reader["FileExtensionId"],
 
-                Description = dataReader["Description"] == DBNull.Value ?
-                    string.Empty : (string)dataReader["Description"],
+                Description = reader["Description"] == DBNull.Value ?
+                    string.Empty : (string)reader["Description"],
 
-                UserId = (int)dataReader["UserId"],
-                FileCategoryId = (int)dataReader["UserId"],
+                UserId = (int)reader["UserId"],
+                FileCategoryId = (int)reader["UserId"],
             };
 
             return fileItem;
         }
 
-        public static IEnumerable<FileItem> ConvertToFileItemList(this SqlDataReader dataReader)
+        public static IEnumerable<FileItem> ConvertToFileItemList(this SqlDataReader reader)
         {
-            if (dataReader is null)
+            if (reader is null)
             {
-                throw new ArgumentNullException(nameof(dataReader));
+                throw new ArgumentNullException(nameof(reader));
             }
 
-            if (!dataReader.HasRows)
+            if (!reader.HasRows)
             {
                 throw new ArgumentException();
             }
 
             var fileItems = new List<FileItem>();
 
-            while (dataReader.Read())
+            while (reader.Read())
             {
-                var fileItem = dataReader.ConvertToFileItem();
+                var fileItem = reader.ConvertToFileItem(false);
                 fileItems.Add(fileItem);
             }
 
