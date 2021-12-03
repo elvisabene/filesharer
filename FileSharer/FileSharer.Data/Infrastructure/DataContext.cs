@@ -7,7 +7,7 @@ namespace FileSharer.Data.Infrastructure
 {
     public class DataContext : IDataContext
     {
-        private IDatabaseSettings _dbSettings;
+        private readonly IDatabaseSettings _dbSettings;
 
         public DataContext(IDatabaseSettings dbSettings)
         {
