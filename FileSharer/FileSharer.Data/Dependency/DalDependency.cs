@@ -20,8 +20,6 @@ namespace FileSharer.Data.Dependency
             services.AddSingleton<IDataConverter<FileItem>, FileItemConverter>();
             services.AddSingleton<IDataConverter<User>, UserConverter>();
 
-            services.AddSingleton<IDataContext, DataContext>();
-
             return services;
         }
     }
