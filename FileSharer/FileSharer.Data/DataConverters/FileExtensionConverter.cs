@@ -5,9 +5,9 @@ using System.Data.SqlClient;
 
 namespace FileSharer.Data.DataConverters
 {
-    public class FileCategoryConverter : IDataConverter<FileCategory>
+    public class FileExtensionConverter : IDataConverter<FileExtension>
     {
-        public IEnumerable<FileCategory> ConvertToItemList(SqlDataReader reader)
+        public IEnumerable<FileExtension> ConvertToItemList(SqlDataReader reader)
         {
             if (reader is null)
             {
@@ -19,7 +19,7 @@ namespace FileSharer.Data.DataConverters
                 throw new ArgumentException();
             }
 
-            var fileCategories = new List<FileCategory>();
+            var fileCategories = new List<FileExtension>();
 
             while (reader.Read())
             {
@@ -30,7 +30,7 @@ namespace FileSharer.Data.DataConverters
             return fileCategories;
         }
 
-        public FileCategory ConvertToSingleItem(SqlDataReader reader, bool withRead = true)
+        public FileExtension ConvertToSingleItem(SqlDataReader reader, bool withRead = true)
         {
             if (reader is null)
             {
@@ -47,7 +47,7 @@ namespace FileSharer.Data.DataConverters
                 reader.Read();
             }
 
-            var fileCategory = new FileCategory()
+            var fileCategory = new FileExtension()
             {
                 Id = (int)reader["Id"],
                 Name = (string)reader["Name"],
@@ -56,7 +56,7 @@ namespace FileSharer.Data.DataConverters
             return fileCategory;
         }
 
-        public SqlParameter[] ConvertToSqlParameters(FileCategory item)
+        public SqlParameter[] ConvertToSqlParameters(FileExtension item)
         {
             if (item is null)
             {

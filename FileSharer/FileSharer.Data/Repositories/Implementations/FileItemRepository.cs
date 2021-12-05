@@ -23,7 +23,7 @@ namespace FileSharer.Data.Repositories.Implementations
 
         public void Add(FileItem fileItem)
         {
-            string procedure = DatabaseConstants.StoredProcedureName.AddFileItem;
+            string procedure = DatabaseConstants.StoredProcedureName.ForAdd.FileItem;
             SqlParameter[] parameters = _converter.ConvertToSqlParameters(fileItem);
 
             SqlCommand command = new SqlCommand(procedure);
@@ -35,7 +35,7 @@ namespace FileSharer.Data.Repositories.Implementations
 
         public void Delete(int id)
         {
-            string procedure = DatabaseConstants.StoredProcedureName.DeleteFileItem;
+            string procedure = DatabaseConstants.StoredProcedureName.ForDelete.FileItem;
 
             SqlCommand command = new SqlCommand(procedure);
             command.CommandType = CommandType.StoredProcedure;
@@ -100,7 +100,7 @@ namespace FileSharer.Data.Repositories.Implementations
 
         public void Update(int id, FileItem newFileItem)
         {
-            string procedure = DatabaseConstants.StoredProcedureName.UpdateFileItem;
+            string procedure = DatabaseConstants.StoredProcedureName.ForUpdate.FileItem;
             SqlParameter[] parameters = _converter.ConvertToSqlParameters(newFileItem);
 
             SqlCommand command = new SqlCommand(procedure);

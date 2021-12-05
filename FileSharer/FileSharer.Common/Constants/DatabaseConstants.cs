@@ -4,23 +4,38 @@
     {
         public static class StoredProcedureName
         {
-            public const string AddFileCategory = "dbo.spAddFileCategory";
+            public static class ForAdd
+            {
+                public const string FileCategory = "dbo.spAddFileCategory";
 
-            public const string AddFileItem = "dbo.spAddFileItem";
+                public const string FileExtension = "dbo.spAddFileExtension";
 
-            public const string AddUser = "dbo.spAddUser";
+                public const string FileItem = "dbo.spAddFileItem";
 
-            public const string DeleteFileCategory = "dbo.spDeleteFileCategory";
+                public const string User = "dbo.spAddUser";
+            }
 
-            public const string DeleteFileItem = "dbo.spDeleteFileItem";
+            public static class ForDelete
+            {
+                public const string FileCategory = "dbo.spDeleteFileCategory";
 
-            public const string DeleteUser = "dbo.spDeleteUser";
+                public const string FileExtension = "dbo.spDeleteFileExtension";
 
-            public const string UpdateFileCategory = "dbo.spUpdateFileCategory";
+                public const string FileItem = "dbo.spDeleteFileItem";
 
-            public const string UpdateFileItem = "dbo.spUpdateFileItem";
+                public const string User = "dbo.spDeleteUser";
+            }
 
-            public const string UpdateUser = "dbo.spUpdateUser";
+            public static class ForUpdate
+            {
+                public const string FileCategory = "dbo.spUpdateFileCategory";
+
+                public const string FileExtension = "dbo.spUpdateFileExtension";
+
+                public const string FileItem = "dbo.spUpdateFileItem";
+
+                public const string User = "dbo.spUpdateUser";
+            }
         }
 
         public static class ViewName

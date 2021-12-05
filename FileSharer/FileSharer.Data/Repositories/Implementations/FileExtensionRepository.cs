@@ -3,28 +3,30 @@ using FileSharer.Common.Entities;
 using FileSharer.Data.DataConverters;
 using FileSharer.Data.Infrastructure;
 using FileSharer.Data.Repositories.Interfaces;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
+using System.Text;
 
 namespace FileSharer.Data.Repositories.Implementations
 {
-    public class FileCategoryRepository : IRepository<FileCategory>
+    public class FileExtensionRepository : IRepository<FileExtension>
     {
         public IDataContext _dataContext;
 
-        public IDataConverter<FileCategory> _converter;
+        public IDataConverter<FileExtension> _converter;
 
-        public FileCategoryRepository(IDataContext dataContext, IDataConverter<FileCategory> converter)
+        public FileExtensionRepository(IDataContext dataContext, IDataConverter<FileExtension> converter)
         {
             _dataContext = dataContext;
             _converter = converter;
         }
 
-        public void Add(FileCategory item)
+        public void Add(FileExtension item)
         {
             var parameters = _converter.ConvertToSqlParameters(item);
-            var procedure = DatabaseConstants.StoredProcedureName.ForAdd.FileCategory;
+            var procedure = DatabaseConstants.StoredProcedureName.ForAdd.FileExtension;
 
             SqlCommand command = new SqlCommand(procedure);
             command.CommandType = CommandType.StoredProcedure;
@@ -35,7 +37,7 @@ namespace FileSharer.Data.Repositories.Implementations
 
         public void Delete(int id)
         {
-            var procedure = DatabaseConstants.StoredProcedureName.ForDelete.FileCategory;
+            var procedure = DatabaseConstants.StoredProcedureName.ForDelete.FileExtension;
 
             SqlCommand command = new SqlCommand(procedure);
             command.CommandType = CommandType.StoredProcedure;
@@ -44,34 +46,34 @@ namespace FileSharer.Data.Repositories.Implementations
             _dataContext.ExecuteNonQuery(command);
         }
 
-        public IEnumerable<FileCategory> GetAll()
+        public IEnumerable<FileExtension> GetAll()
         {
-            var view = DatabaseConstants.ViewName.AllFileCategories;
+            var view = DatabaseConstants.ViewName.AllFileExtensions;
             var query = $"SELECT * FROM {view}";
 
             SqlCommand command = new SqlCommand(query);
 
-            var fileCategories = _dataContext.ExecuteQueryAsList(command, _converter);
+            var fileExtensions = _dataContext.ExecuteQueryAsList(command, _converter);
 
-            return fileCategories;
+            return fileExtensions;
         }
 
-        public FileCategory GetById(int id)
+        public FileExtension GetById(int id)
         {
-            var view = DatabaseConstants.ViewName.AllFileCategories;
+            var view = DatabaseConstants.ViewName.AllFileExtensions;
             var query = $"SELECT * FROM {view} " +
                         $"WHERE Id = @id";
 
             SqlCommand command = new SqlCommand(query);
 
-            var fileCategory = _dataContext.ExecuteQueryAsSingle(command, _converter);
+            var fileExtension = _dataContext.ExecuteQueryAsSingle(command, _converter);
 
-            return fileCategory;
+            return fileExtension;
         }
 
-        public void Update(int id, FileCategory newItem)
+        public void Update(int id, FileExtension newItem)
         {
-            var procedure = DatabaseConstants.StoredProcedureName.ForUpdate.FileCategory;
+            var procedure = DatabaseConstants.StoredProcedureName.ForUpdate.FileExtension;
             var parameters = _converter.ConvertToSqlParameters(newItem);
 
             SqlCommand command = new SqlCommand(procedure);
