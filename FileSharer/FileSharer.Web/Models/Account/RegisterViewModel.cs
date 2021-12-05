@@ -1,20 +1,21 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using FileSharer.Common.Constants;
+using System.ComponentModel.DataAnnotations;
 
 namespace FileSharer.Web.Models.Account
 {
     public class RegisterViewModel
     {
-        [Required(ErrorMessage = "Field is required")]
+        [Required(ErrorMessage = ErrorMessage.RequiredField)]
         public string Name { get; set; }
 
-        [Required(ErrorMessage = "Field is required")]
+        [Required(ErrorMessage = ErrorMessage.RequiredField)]
         public string Email { get; set; }
 
-        [Required(ErrorMessage = "Field is required")]
+        [Required(ErrorMessage = ErrorMessage.RequiredField)]
         public string Password { get; set; }
 
-        [Required(ErrorMessage = "Field is required")]
-        [Compare("Password", ErrorMessage = "Passwords dont match!")]
+        [Required(ErrorMessage = ErrorMessage.RequiredField)]
+        [Compare("Password", ErrorMessage = ErrorMessage.PasswordsDontMatch)]
         public string ConfirmPassword { get; set; }
     }
 }

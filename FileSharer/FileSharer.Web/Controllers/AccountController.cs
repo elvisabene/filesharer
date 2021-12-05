@@ -1,24 +1,21 @@
-﻿using FileSharer.Business.Services.Interfaces;
+﻿using FileSharer.Common.Constants;
 using FileSharer.Common.Entities;
+using FileSharer.Web.Managers.Interfaces;
 using FileSharer.Web.Models.Account;
-using Microsoft.AspNetCore.Mvc;
-using System.Collections.Generic;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.Cookies;
-using System.Security.Claims;
+using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
-using System;
-using FileSharer.Common.Extensions;
 
 namespace FileSharer.Web.Controllers
 {
     public class AccountController : Controller
     {
-        private IUserService _userService;
+        private IUserManager _userManager;
 
-        public AccountController(IUserService userService)
+        public AccountController(IUserManager userManager)
         {
-            _userService = userService;
+            _userManager = userManager;
         }
 
         [HttpGet]
@@ -35,23 +32,15 @@ namespace FileSharer.Web.Controllers
                 return View(model);
             }
 
-            var user = _userService.GetByEmail(model.Email);
+            User user;
 
-            if (user is null)
+            if (!_userManager.IsUserExists(model.Email, model.Password, out user))
             {
-                ModelState.AddModelError("", "Incorrect email or password");
+                ModelState.AddModelError("", ErrorMessage.IncorrectCredentials);
                 return View();
             }
 
-            var passwordHash = model.Password.GetHashSHA256();
-
-            if (passwordHash != user.PasswordHash)
-            {
-                ModelState.AddModelError("", "Incorrect email or password");
-                return View();
-            }
-
-            await Authenticate(user);
+            await _userManager.Authenticate(user, HttpContext);
 
             return RedirectToAction("Index", "Home");
         }
@@ -70,28 +59,16 @@ namespace FileSharer.Web.Controllers
                 return View(model);
             }
 
-            var existingUser = _userService.GetByEmail(model.Email);
-
-            if (existingUser != null)
+            if (_userManager.IsUserExists(model.Email))
             {
-                ModelState.AddModelError("", "User with such Email already exists!");
+                ModelState.AddModelError("", ErrorMessage.UserAlreadyExists);
 
                 return View();
             }
 
-            var passwordHash = model.Password.GetHashSHA256();
+            var user = _userManager.CreateUser(model.Name, model.Email, model.Password);
 
-            User user = new User()
-            {
-                Name = model.Name,
-                Email = model.Email,
-                RoleId = 1,
-                PasswordHash = passwordHash,
-            };
-
-            _userService.Add(user);
-
-            await Authenticate(user);
+            await _userManager.Authenticate(user, HttpContext);
 
             return RedirectToAction("Index", "Home");
         }
@@ -102,26 +79,6 @@ namespace FileSharer.Web.Controllers
             await HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
 
             return RedirectToAction("Index", "Home");
-        }
-
-        private async Task Authenticate(User user)
-        {
-            if (user is null)
-            {
-                throw new ArgumentNullException(nameof(user));
-            }
-
-            var claims = new List<Claim>()
-            {
-                new Claim(ClaimTypes.Email, user.Email),
-                new Claim(ClaimTypes.Name, user.Name),
-            };
-
-            var identity = new ClaimsIdentity(claims, "AuthenticationCookie");
-
-            var principal = new ClaimsPrincipal(identity);
-
-            await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, principal);
         }
     }
 }
