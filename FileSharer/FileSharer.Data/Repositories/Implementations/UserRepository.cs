@@ -59,7 +59,7 @@ namespace FileSharer.Data.Repositories.Implementations
         public IEnumerable<User> GetAllByName(string name)
         {
             string view = DatabaseConstants.ViewName.AllUsers;
-            string query = $"SELECT * FROM {view}" +
+            string query = $"SELECT * FROM {view} " +
                            $"WHERE Name = @name";
 
             SqlCommand command = new SqlCommand(query);
@@ -73,7 +73,7 @@ namespace FileSharer.Data.Repositories.Implementations
         public User GetByEmail(string email)
         {
             string view = DatabaseConstants.ViewName.AllUsers;
-            string query = $"SELECT * FROM {view}" +
+            string query = $"SELECT * FROM {view} " +
                            $"WHERE Email = @email";
 
             SqlCommand command = new SqlCommand(query);
@@ -87,7 +87,7 @@ namespace FileSharer.Data.Repositories.Implementations
         public User GetById(int id)
         {
             string view = DatabaseConstants.ViewName.AllUsers;
-            string query = $"SELECT * FROM {view}" +
+            string query = $"SELECT * FROM {view} " +
                            $"WHERE Id = @id";
 
             SqlCommand command = new SqlCommand(query);

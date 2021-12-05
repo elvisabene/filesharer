@@ -59,7 +59,7 @@ namespace FileSharer.Data.Repositories.Implementations
         public IEnumerable<FileItem> GetAllByCategoryId(int categoryId)
         {
             string view = DatabaseConstants.ViewName.AllFileItems;
-            string query = $"SELECT * FROM {view}" +
+            string query = $"SELECT * FROM {view} " +
                            $"WHERE CategoryId = @categoryId";
 
             SqlCommand command = new SqlCommand(query);
@@ -73,7 +73,7 @@ namespace FileSharer.Data.Repositories.Implementations
         public IEnumerable<FileItem> GetAllByUserId(int userId)
         {
             string view = DatabaseConstants.ViewName.AllFileItems;
-            string query = $"SELECT * FROM {view}" +
+            string query = $"SELECT * FROM {view} " +
                            $"WHERE UserId = @userId";
 
             SqlCommand command = new SqlCommand(query);
@@ -87,7 +87,7 @@ namespace FileSharer.Data.Repositories.Implementations
         public FileItem GetById(int id)
         {
             string view = DatabaseConstants.ViewName.AllFileItems;
-            string query = $"SELECT * FROM {view}" +
+            string query = $"SELECT * FROM {view} " +
                            $"WHERE Id = @id";
 
             SqlCommand command = new SqlCommand(query);

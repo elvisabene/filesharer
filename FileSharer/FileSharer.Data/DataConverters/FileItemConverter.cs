@@ -29,13 +29,13 @@ namespace FileSharer.Data.DataConverters
             {
                 Id = (int)reader["Id"],
                 Name = (string)reader["Name"],
-                FileExtensionId = (int)reader["FileExtensionId"],
+                FileExtensionId = (int)reader["ExtensionId"],
 
                 Description = reader["Description"] == DBNull.Value ?
                     string.Empty : (string)reader["Description"],
 
                 UserId = (int)reader["UserId"],
-                FileCategoryId = (int)reader["UserId"],
+                FileCategoryId = (int)reader["CategoryId"],
             };
 
             return fileItem;
