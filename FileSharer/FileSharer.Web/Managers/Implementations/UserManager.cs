@@ -83,6 +83,8 @@ namespace FileSharer.Web.Managers.Implementations
                 PasswordHash = passwordHash,
             };
 
+            _userService.Add(newUser);
+
             return newUser;
         }
     }
