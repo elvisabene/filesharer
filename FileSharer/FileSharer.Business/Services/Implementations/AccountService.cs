@@ -2,7 +2,6 @@
 using FileSharer.Common.Constants;
 using FileSharer.Common.Entities;
 using FileSharer.Common.Extensions;
-using FileSharer.Web.Managers.Interfaces;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Http;
@@ -11,13 +10,13 @@ using System.Collections.Generic;
 using System.Security.Claims;
 using System.Threading.Tasks;
 
-namespace FileSharer.Web.Managers.Implementations
+namespace FileSharer.Business.Services.Implementations
 {
-    public class UserManager : IUserManager
+    public class AccountService : IAccountService
     {
         private readonly IUserService _userService;
 
-        public UserManager(IUserService userService)
+        public AccountService(IUserService userService)
         {
             _userService = userService;
         }

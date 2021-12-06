@@ -1,6 +1,6 @@
-﻿using FileSharer.Common.Constants;
+﻿using FileSharer.Business.Services.Interfaces;
+using FileSharer.Common.Constants;
 using FileSharer.Common.Entities;
-using FileSharer.Web.Managers.Interfaces;
 using FileSharer.Web.Models.Account;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.Cookies;
@@ -11,11 +11,11 @@ namespace FileSharer.Web.Controllers
 {
     public class AccountController : Controller
     {
-        private IUserManager _userManager;
+        private IAccountService _accountService;
 
-        public AccountController(IUserManager userManager)
+        public AccountController(IAccountService userManager)
         {
-            _userManager = userManager;
+            _accountService = userManager;
         }
 
         [HttpGet]
@@ -34,13 +34,13 @@ namespace FileSharer.Web.Controllers
 
             User user;
 
-            if (!_userManager.IsUserExists(model.Email, model.Password, out user))
+            if (!_accountService.IsUserExists(model.Email, model.Password, out user))
             {
                 ModelState.AddModelError("", ErrorMessage.IncorrectCredentials);
                 return View();
             }
 
-            await _userManager.Authenticate(user, HttpContext);
+            await _accountService.Authenticate(user, HttpContext);
 
             return RedirectToAction("Index", "Home");
         }
@@ -59,16 +59,16 @@ namespace FileSharer.Web.Controllers
                 return View(model);
             }
 
-            if (_userManager.IsUserExists(model.Email))
+            if (_accountService.IsUserExists(model.Email))
             {
                 ModelState.AddModelError("", ErrorMessage.UserAlreadyExists);
 
                 return View();
             }
 
-            var user = _userManager.CreateUser(model.Name, model.Email, model.Password);
+            var user = _accountService.CreateUser(model.Name, model.Email, model.Password);
 
-            await _userManager.Authenticate(user, HttpContext);
+            await _accountService.Authenticate(user, HttpContext);
 
             return RedirectToAction("Index", "Home");
         }

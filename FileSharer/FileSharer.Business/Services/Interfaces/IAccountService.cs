@@ -2,16 +2,16 @@
 using Microsoft.AspNetCore.Http;
 using System.Threading.Tasks;
 
-namespace FileSharer.Web.Managers.Interfaces
+namespace FileSharer.Business.Services.Interfaces
 {
-    public interface IUserManager
+    public interface IAccountService
     {
+        User CreateUser(string name, string email, string password);
+
         Task Authenticate(User user, HttpContext httpContext);
 
         bool IsUserExists(string email);
 
         bool IsUserExists(string email, string password, out User user);
-
-        User CreateUser(string name, string email, string password);
     }
 }

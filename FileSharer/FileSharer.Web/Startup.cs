@@ -1,6 +1,4 @@
 using FileSharer.Business.Dependency;
-using FileSharer.Web.Managers.Implementations;
-using FileSharer.Web.Managers.Interfaces;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -31,8 +29,6 @@ namespace FileSharer.Web
                 });
 
             services.AddControllersWithViews();
-
-            services.AddScoped<IUserManager, UserManager>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
