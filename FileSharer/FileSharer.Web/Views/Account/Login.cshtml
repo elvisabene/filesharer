@@ -7,24 +7,24 @@
 <div class="container">
     <div class="justify-content-center">
         <form class="col-8" asp-action="Login" method="post">
-            <div class="validation text-danger col-md-5 offset-6 my-md-4" asp-validation-summary="ModelOnly"></div>
-            <div class="col-md-5 offset-6 my-md-4">
+            <div class="validation text-danger col-6 offset-6 my-4" asp-validation-summary="ModelOnly"></div>
+            <div class="col-6 offset-6 my-4">
                 <label asp-for="Email" class="form-label">Email address</label>
                 <input asp-for="Email" type="email" class="form-control">
                 <span asp-validation-for="Email"></span>
             </div>
-            <div class="col-md-5 offset-6 my-md-4">
+            <div class="col-6 offset-6 my-4">
                 <label asp-for="Password" class="form-label">Password</label>
                 <input asp-for="Password" type="password" class="form-control">
                 <span asp-validation-for="Password"></span>
             </div>
             <div class="form-row text-center my-md-4">
-                <div class="col-md-5 offset-6 my-md-4">
+                <div class="col-6 offset-6 my-4">
                     <button type="submit" class="btn btn-outline-primary">Login</button>
                 </div>
             </div>
-            <div class="form-text text-center offset-5 my-md-3">
-                Still dont have an account? Click <a href="#">here</a> for register.
+            <div class="form-text text-center offset-6 my-md-3">
+                Still dont have an account? Click <a asp-action="Register"> here</a> for register.
             </div>
         </form>
     </div>

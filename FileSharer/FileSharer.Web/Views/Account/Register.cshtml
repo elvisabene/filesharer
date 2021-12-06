@@ -1,35 +1,35 @@
 ﻿@model RegisterViewModel
 
-@{ 
-
+@{
+    ViewData["Title"] = "Register";
 }
 
 <div class="container">
     <div class="justify-content-center">
         <form class="col-8" asp-action="Register" method="post">
-            <div class="validation text-danger col-md-5 offset-6 my-md-4" asp-validation-summary="ModelOnly"></div>
-            <div class="col-md-5 offset-6 my-md-4">
+            <div class="validation text-danger col-6 offset-6 my-4" asp-validation-summary="ModelOnly"></div>
+            <div class="col-md-6 offset-6 my-4">
                 <label asp-for="Name" class="form-label">Name</label>
                 <input asp-for="Name" type="text" class="form-control">
                 <span asp-validation-for="Name"></span>
             </div>
-            <div class="col-md-5 offset-6 my-md-4">
+            <div class="col-md-6 offset-6 my-4">
                 <label asp-for="Email" class="form-label">Email address</label>
                 <input asp-for="Email" type="email" class="form-control">
                 <span asp-validation-for="Email"></span>
             </div>
-            <div class="col-md-5 offset-6 my-md-4">
+            <div class="col-md-6 offset-6 my-4">
                 <label asp-for="Password" class="form-label">Password</label>
                 <input asp-for="Password" type="password" class="form-control">
                 <span asp-validation-for="Email"></span>
             </div>
-            <div class="col-md-5 offset-6 my-md-4">
+            <div class="col-md-6 offset-6 my-md-4">
                 <label asp-for="ConfirmPassword" class="form-label">Confirm Password</label>
                 <input asp-for="ConfirmPassword" type="password" class="form-control">
                 <span asp-validation-for="ConfirmPassword"></span>
             </div>
-            <div class="form-row text-center my-md-4">
-                <div class="col-md-5 offset-6 my-md-4">
+            <div class="form-row text-center">
+                <div class="col-md-6 offset-6 my-4">
                     <button type="submit" class="btn btn-outline-primary">Register</button>
                 </div>
             </div>
