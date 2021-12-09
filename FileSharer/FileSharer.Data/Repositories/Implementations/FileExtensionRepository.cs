@@ -3,11 +3,9 @@ using FileSharer.Common.Entities;
 using FileSharer.Data.DataConverters;
 using FileSharer.Data.Infrastructure;
 using FileSharer.Data.Repositories.Interfaces;
-using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
-using System.Text;
 
 namespace FileSharer.Data.Repositories.Implementations
 {
@@ -65,6 +63,7 @@ namespace FileSharer.Data.Repositories.Implementations
                         $"WHERE Id = @id";
 
             SqlCommand command = new SqlCommand(query);
+            command.Parameters.AddWithValue("@id", id);
 
             var fileExtension = _dataContext.ExecuteQueryAsSingle(command, _converter);
 

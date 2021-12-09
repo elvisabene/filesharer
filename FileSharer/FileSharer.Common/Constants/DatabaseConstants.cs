@@ -40,7 +40,7 @@
 
         public static class ViewName
         {
-            public const string AllFileCategories = "dbo.vFileCategiry";
+            public const string AllFileCategories = "dbo.vFileCategory";
 
             public const string AllFileExtensions = "dbo.vFileExtension";
 

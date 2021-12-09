@@ -63,6 +63,7 @@ namespace FileSharer.Data.Repositories.Implementations
                         $"WHERE Id = @id";
 
             SqlCommand command = new SqlCommand(query);
+            command.Parameters.AddWithValue("@id", id);
 
             var fileCategory = _dataContext.ExecuteQueryAsSingle(command, _converter);
 
