@@ -7,9 +7,9 @@ namespace FileSharer.Business.Services.Implementations
 {
     public class FileCategoryService : IFileCategoryService
     {
-        private IFileCategoryService _fileCategoryRepository;
+        private IFileCategoryRepository _fileCategoryRepository;
 
-        public FileCategoryService(IFileCategoryService fileCategoryRepository)
+        public FileCategoryService(IFileCategoryRepository fileCategoryRepository)
         {
             _fileCategoryRepository = fileCategoryRepository;
         }

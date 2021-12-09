@@ -104,6 +104,7 @@ namespace FileSharer.Data.Repositories.Implementations
             SqlParameter[] parameters = _converter.ConvertToSqlParameters(newFileItem);
 
             SqlCommand command = new SqlCommand(procedure);
+            command.CommandType = CommandType.StoredProcedure;
             command.Parameters.AddWithValue("@id", id);
             command.Parameters.AddRange(parameters);
 

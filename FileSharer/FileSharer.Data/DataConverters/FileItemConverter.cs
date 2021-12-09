@@ -17,7 +17,7 @@ namespace FileSharer.Data.DataConverters
 
             if (!reader.HasRows)
             {
-                throw new ArgumentException();
+                return null;
             }
 
             if (withRead)
