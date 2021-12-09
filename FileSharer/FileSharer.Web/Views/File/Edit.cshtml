@@ -1,0 +1,38 @@
+﻿@model FileSharer.Web.Models.File.EditFileViewModel
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit file</h1>
+
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit" method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="NewName" class="control-label">New name</label>
+                <input asp-for="NewName" placeholder="@Model.NewName" class="form-control" />
+                <span asp-validation-for="NewName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="NewCategory" class="control-label">New category</label>
+                <input asp-for="NewCategory" placeholder="@Model.NewCategory" class="form-control" />
+                <span asp-validation-for="NewCategory" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="NewDescription" class="control-label">New description</label>
+                <textarea asp-for="NewDescription" placeholder="@Model.NewDescription" class="form-control"></textarea>
+                <span asp-validation-for="NewDescription" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-outline-success" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div >
+    <a class="btn btn-outline-primary" asp-action="List">Back to List</a>
+</div>

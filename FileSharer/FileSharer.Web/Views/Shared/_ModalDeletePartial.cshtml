@@ -1,6 +1,6 @@
-﻿@model FileSharer.Web.Models.Common.DeleteModel
+﻿@model FileSharer.Web.Models.Common.DeleteItemModel
 
-<div class="modal fade" id="modal" tabindex="-1" aria-hidden="true">
+<div class="modal fade" id="modal-@Model.Id" tabindex="-1" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
@@ -10,8 +10,10 @@
                 Are you sure you want to delete "@Model.Name"?
             </div>
             <div class="modal-footer">
-                <a asp-action="Delete" asp-route-id="@Model.Id" class="btn btn-danger">Delete</a>
-                <button class="btn btn-primary" data-dismiss="modal">Close</button>
+                <form asp-action="Delete" asp-route-id="@Model.Id" method="post">
+                    <button class="btn btn-danger" type="submit">Delete</button>
+                    <button class="btn btn-primary" data-dismiss="modal">Close</button>
+                </form>
             </div>
         </div>
     </div>

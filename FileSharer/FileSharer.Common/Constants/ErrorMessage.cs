@@ -9,5 +9,9 @@
         public const string UserAlreadyExists = "User with such Email already exists!";
 
         public const string IncorrectCredentials = "Incorrect email or password!";
+
+        public const string NoSuchCategory = "There is no such category.";
+
+        public const string UnsupportedFormat = "Unsupported format.";
     }
 }

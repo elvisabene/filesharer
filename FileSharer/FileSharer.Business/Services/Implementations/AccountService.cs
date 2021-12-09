@@ -59,6 +59,7 @@ namespace FileSharer.Business.Services.Implementations
 
             var claims = new List<Claim>()
             {
+                new Claim(CustomClaimTypes.Id, user.Id.ToString()),
                 new Claim(ClaimTypes.Email, user.Email),
                 new Claim(ClaimTypes.Name, user.Name),
             };

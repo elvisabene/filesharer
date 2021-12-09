@@ -1,0 +1,37 @@
+﻿@model FileSharer.Web.Models.File.UploadFileViewModel
+
+@{
+    ViewData["Title"] = "Upload";
+}
+
+<h1>Upload</h1>
+
+<h4>UploadFileViewModel</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Upload" method="post" enctype="multipart/form-data">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <select class="form-control" asp-for="Category" asp-items=@(ViewData["Categories"] as SelectList)></select>
+            </div>
+            <div class="form-group">
+                <textarea class="form-control" placeholder="Description"></textarea>
+            </div>
+            <div class="form-group custom-file">
+                <input type="file" class="custom-file-input form-control" asp-for="File">
+                <label class="custom-file-label" asp-for="File">
+                    Select file...
+                </label>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="List">Back to List</a>
+</div>
+
