@@ -12,7 +12,7 @@ namespace FileSharer.Business.Dependency
         {
             services.AddDal(dbConnectionString);
 
-            services.AddScoped<IService<FileCategory>, FileCategoryService>();
+            services.AddScoped<IFileCategoryService, FileCategoryService>();
             services.AddScoped<IService<FileExtension>, FileExtensionService>();
             services.AddScoped<IFileItemService, FileItemService>();
             services.AddScoped<IUserService, UserService>();

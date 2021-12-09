@@ -15,7 +15,7 @@ namespace FileSharer.Data.Dependency
             services.AddScoped<IDatabaseSettings>(provider => new DatabaseSettings(dbConnectionString));
             services.AddScoped<IDataContext, DataContext>();
 
-            services.AddScoped<IRepository<FileCategory>, FileCategoryRepository>();
+            services.AddScoped<IFileCategoryRepository, FileCategoryRepository>();
             services.AddScoped<IRepository<FileExtension>, FileExtensionRepository>();
             services.AddScoped<IFileItemRepository, FileItemRepository>();
             services.AddScoped<IUserRepository, UserRepository>();

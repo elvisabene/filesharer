@@ -9,7 +9,7 @@ using System.Data.SqlClient;
 
 namespace FileSharer.Data.Repositories.Implementations
 {
-    public class FileCategoryRepository : IRepository<FileCategory>
+    public class FileCategoryRepository : IFileCategoryRepository
     {
         public IDataContext _dataContext;
 
@@ -64,6 +64,20 @@ namespace FileSharer.Data.Repositories.Implementations
 
             SqlCommand command = new SqlCommand(query);
             command.Parameters.AddWithValue("@id", id);
+
+            var fileCategory = _dataContext.ExecuteQueryAsSingle(command, _converter);
+
+            return fileCategory;
+        }
+
+        public FileCategory GetByName(string name)
+        {
+            var view = DatabaseConstants.ViewName.AllFileCategories;
+            var query = $"SELECT * FROM {view} " +
+                        $"WHERE Name = @name";
+
+            SqlCommand command = new SqlCommand(query);
+            command.Parameters.AddWithValue("@name", name);
 
             var fileCategory = _dataContext.ExecuteQueryAsSingle(command, _converter);
 

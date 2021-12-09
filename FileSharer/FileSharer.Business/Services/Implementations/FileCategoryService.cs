@@ -5,11 +5,11 @@ using System.Collections.Generic;
 
 namespace FileSharer.Business.Services.Implementations
 {
-    public class FileCategoryService : IService<FileCategory>
+    public class FileCategoryService : IFileCategoryService
     {
-        private IRepository<FileCategory> _fileCategoryRepository;
+        private IFileCategoryService _fileCategoryRepository;
 
-        public FileCategoryService(IRepository<FileCategory> fileCategoryRepository)
+        public FileCategoryService(IFileCategoryService fileCategoryRepository)
         {
             _fileCategoryRepository = fileCategoryRepository;
         }
@@ -33,9 +33,16 @@ namespace FileSharer.Business.Services.Implementations
 
         public FileCategory GetById(int id)
         {
-            var fileExtension = _fileCategoryRepository.GetById(id);
+            var fileCategory = _fileCategoryRepository.GetById(id);
 
-            return fileExtension;
+            return fileCategory;
+        }
+
+        public FileCategory GetByName(string name)
+        {
+            var fileCategory = _fileCategoryRepository.GetByName(name);
+
+            return fileCategory;
         }
 
         public void Update(int id, FileCategory newItem)
