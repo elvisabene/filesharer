@@ -22,7 +22,10 @@
                 @Html.DisplayNameFor(model => model.Author)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Description)
+                @(Html.DisplayNameFor(model => model.Size)+"(KB)")
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DownloadsCount)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.CreateDate)
@@ -43,7 +46,10 @@
                 @Html.DisplayFor(modelItem => file.Author)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => file.Description)
+                @Html.DisplayFor(modelItem => file.Size)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => file.DownloadsCount)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => file.CreateDate)

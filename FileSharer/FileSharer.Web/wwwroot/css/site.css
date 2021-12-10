@@ -51,6 +51,10 @@ button.accept-policy {
   line-height: inherit;
 }
 
+body {
+    background-color: blanchedalmond;
+}
+
 /* Sticky footer styles
 -------------------------------------------------- */
 html {

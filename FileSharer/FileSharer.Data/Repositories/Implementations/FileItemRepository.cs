@@ -110,5 +110,16 @@ namespace FileSharer.Data.Repositories.Implementations
 
             _dataContext.ExecuteNonQuery(command);
         }
+
+        public void IncrementDownloadsCount(int id)
+        {
+            string procedure = DatabaseConstants.StoredProcedureName.ForUpdate.DownloadsCount;
+
+            SqlCommand command = new SqlCommand(procedure);
+            command.CommandType = CommandType.StoredProcedure;
+            command.Parameters.AddWithValue("@id", id);
+
+            _dataContext.ExecuteNonQuery(command);
+        }
     }
 }

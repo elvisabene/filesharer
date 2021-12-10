@@ -176,8 +176,10 @@ namespace FileSharer.Web.Controllers
                 Id = file.Id,
                 Name = name,
                 Category = category,
-                Description = file.Description,
                 Author = author,
+                Description = file.Description,
+                Size = file.Size,
+                DownloadsCount = file.DownloadsCount,
                 CreateDate = file.CreateDate,
             };
 
@@ -186,20 +188,21 @@ namespace FileSharer.Web.Controllers
 
         private FileItem CreateFile(UploadFileViewModel uploadFile, FileCategory category, FileExtension extension)
         {
-           var file = new FileItem()
-           {
-                Name = uploadFile.File.FileName.Split('.')[^1],
-                FileCategoryId = category.Id,
-                FileExtensionId = extension.Id,
-                Description = uploadFile.Description,
+            var name = uploadFile.File.FileName.Split('.')[^1];
+            var userId = int.Parse(User.Claims.Single(
+                     claim => claim.Type == CustomClaimTypes.Id).Value);
 
-                UserId = int.Parse(User.Claims.Single(
-                    claim => claim.Type == CustomClaimTypes.Id).Value),
+            var file = new FileItem()
+            {
+                 Name = name,
+                 FileCategoryId = category.Id,
+                 FileExtensionId = extension.Id,
+                 Description = uploadFile.Description,
+ 
+                 UserId = userId,
+            };
 
-                CreateDate = DateTime.Now,
-           };
-
-            return null;
+            return file;
         }
     }
 }

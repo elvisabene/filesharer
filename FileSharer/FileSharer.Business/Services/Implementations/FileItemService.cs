@@ -56,5 +56,10 @@ namespace FileSharer.Business.Services.Implementations
         {
             _fileItemRepository.Update(id, newFileItem);
         }
+
+        public void IncrementDownloadsCount(int id)
+        {
+            _fileItemRepository.IncrementDownloadsCount(id);
+        }
     }
 }

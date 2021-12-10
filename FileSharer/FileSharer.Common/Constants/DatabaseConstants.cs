@@ -35,6 +35,8 @@
                 public const string FileItem = "dbo.spUpdateFileItem";
 
                 public const string User = "dbo.spUpdateUser";
+
+                public const string DownloadsCount = "dbo.spIncrementDownloadsCount";
             }
         }
 

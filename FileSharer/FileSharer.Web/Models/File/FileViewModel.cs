@@ -15,6 +15,10 @@ namespace FileSharer.Web.Models.File
 
         public string Description { get; set; }
 
+        public int Size { get; set; }
+
+        public int DownloadsCount { get; set; }
+
         [DataType(DataType.Date)]
         public DateTime CreateDate { get; set; }
     }

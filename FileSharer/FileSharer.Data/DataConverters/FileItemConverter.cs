@@ -34,6 +34,9 @@ namespace FileSharer.Data.DataConverters
                 Description = reader["Description"] == DBNull.Value ?
                     string.Empty : (string)reader["Description"],
 
+                CreateDate = (DateTime)reader["CreateDate"],
+                Size = (int)reader["Size"],
+                DownloadsCount = (int)reader["DownloadsCount"],
                 UserId = (int)reader["UserId"],
                 FileCategoryId = (int)reader["CategoryId"],
             };
@@ -90,6 +93,12 @@ namespace FileSharer.Data.DataConverters
                     ParameterName = "@description",
                     DbType = DbType.String,
                     Value = fileItem.Description,
+                },
+                new SqlParameter()
+                {
+                    ParameterName = "@size",
+                    DbType = DbType.Int32,
+                    Value = fileItem.Size,
                 },
                 new SqlParameter()
                 {

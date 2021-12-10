@@ -2,6 +2,7 @@ CREATE PROCEDURE dbo.spAddFileItem
     @name NVARCHAR(100),
     @fileExtensionId INT,
     @description NVARCHAR(200),
+    @size INT,
     @userId INT,
     @fileCategoryId INT
 AS
@@ -13,6 +14,6 @@ BEGIN
         OR @fileExtensionId IS NULL OR @userId IS NULL OR @fileCategoryId IS NULL
             THROW 50000, 'Arguments was null or not existing!', 1
     ELSE
-        INSERT INTO dbo.tFileItem(Name, FileExtensionId, Description, UserId, FileCategoryId)
-        VALUES(@name, @fileExtensionId, @description, @userId, @fileCategoryId)
+        INSERT INTO dbo.tFileItem(Name, FileExtensionId, Description, Size, UserId, FileCategoryId)
+        VALUES(@name, @fileExtensionId, @description, @size, @userId, @fileCategoryId)
 END
