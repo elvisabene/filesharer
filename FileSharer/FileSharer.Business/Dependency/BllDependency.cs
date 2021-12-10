@@ -15,6 +15,7 @@ namespace FileSharer.Business.Dependency
             services.AddScoped<IFileCategoryService, FileCategoryService>();
             services.AddScoped<IService<FileExtension>, FileExtensionService>();
             services.AddScoped<IFileItemService, FileItemService>();
+            services.AddScoped<IService<Role>, RoleService>();
             services.AddScoped<IUserService, UserService>();
             services.AddScoped<IAccountService, AccountService>();
 
