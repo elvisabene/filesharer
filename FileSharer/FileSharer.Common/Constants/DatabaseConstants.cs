@@ -12,6 +12,8 @@
 
                 public const string FileItem = "dbo.spAddFileItem";
 
+                public const string Role = "dbo.spAddRole";
+
                 public const string User = "dbo.spAddUser";
             }
 
@@ -23,20 +25,25 @@
 
                 public const string FileItem = "dbo.spDeleteFileItem";
 
+                public const string Role = "dbo.spDeleteRole";
+
                 public const string User = "dbo.spDeleteUser";
             }
 
             public static class ForUpdate
             {
+                public const string DownloadsCount = "dbo.spIncrementDownloadsCount";
+
                 public const string FileCategory = "dbo.spUpdateFileCategory";
 
                 public const string FileExtension = "dbo.spUpdateFileExtension";
 
                 public const string FileItem = "dbo.spUpdateFileItem";
 
+                public const string Role = "dbo.spUpdateRole";
+
                 public const string User = "dbo.spUpdateUser";
 
-                public const string DownloadsCount = "dbo.spIncrementDownloadsCount";
             }
         }
 

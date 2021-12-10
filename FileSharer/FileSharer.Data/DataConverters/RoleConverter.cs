@@ -6,9 +6,9 @@ using System.Data.SqlClient;
 
 namespace FileSharer.Data.DataConverters
 {
-    public class FileCategoryConverter : IDataConverter<FileCategory>
+    public class RoleConverter : IDataConverter<Role>
     {
-        public IEnumerable<FileCategory> ConvertToItemList(SqlDataReader reader)
+        public IEnumerable<Role> ConvertToItemList(SqlDataReader reader)
         {
             if (reader is null)
             {
@@ -17,21 +17,21 @@ namespace FileSharer.Data.DataConverters
 
             if (!reader.HasRows)
             {
-                throw new ArgumentException();
+                return null;
             }
 
-            var fileCategories = new List<FileCategory>();
+            var roles = new List<Role>();
 
             while (reader.Read())
             {
-                var fileCategory = ConvertToSingleItem(reader, false);
-                fileCategories.Add(fileCategory);
+                var role = ConvertToSingleItem(reader, false);
+                roles.Add(role);
             }
 
-            return fileCategories;
+            return roles;
         }
 
-        public FileCategory ConvertToSingleItem(SqlDataReader reader, bool withRead = true)
+        public Role ConvertToSingleItem(SqlDataReader reader, bool withRead = true)
         {
             if (reader is null)
             {
@@ -48,16 +48,16 @@ namespace FileSharer.Data.DataConverters
                 reader.Read();
             }
 
-            var fileCategory = new FileCategory()
+            var role = new Role()
             {
                 Id = (int)reader["Id"],
                 Name = (string)reader["Name"],
             };
 
-            return fileCategory;
+            return role;
         }
 
-        public SqlParameter[] ConvertToSqlParameters(FileCategory item)
+        public SqlParameter[] ConvertToSqlParameters(Role item)
         {
             if (item is null)
             {

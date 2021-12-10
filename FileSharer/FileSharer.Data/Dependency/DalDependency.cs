@@ -18,11 +18,13 @@ namespace FileSharer.Data.Dependency
             services.AddScoped<IFileCategoryRepository, FileCategoryRepository>();
             services.AddScoped<IRepository<FileExtension>, FileExtensionRepository>();
             services.AddScoped<IFileItemRepository, FileItemRepository>();
+            services.AddScoped<IRepository<Role>, RoleRepository>();
             services.AddScoped<IUserRepository, UserRepository>();
 
             services.AddSingleton<IDataConverter<FileCategory>, FileCategoryConverter>();
             services.AddSingleton<IDataConverter<FileExtension>, FileExtensionConverter>();
             services.AddSingleton<IDataConverter<FileItem>, FileItemConverter>();
+            services.AddScoped<IDataConverter<Role>, RoleConverter>();
             services.AddSingleton<IDataConverter<User>, UserConverter>();
 
             return services;

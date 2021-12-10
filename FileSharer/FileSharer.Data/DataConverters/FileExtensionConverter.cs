@@ -1,6 +1,7 @@
 ﻿using FileSharer.Common.Entities;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Data.SqlClient;
 
 namespace FileSharer.Data.DataConverters
@@ -68,6 +69,7 @@ namespace FileSharer.Data.DataConverters
                 new SqlParameter()
                 {
                     ParameterName = "@name",
+                    DbType = DbType.String,
                     Value = item.Name,
                 }
             };

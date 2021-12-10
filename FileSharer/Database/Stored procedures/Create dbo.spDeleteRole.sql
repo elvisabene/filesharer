@@ -1,10 +1,10 @@
-CREATE PROCEDURE dbo.spDeleteFileExtension
+CREATE PROCEDURE dbo.spDeleteRole
     @id INT
 AS
 BEGIN
     IF @id IS NULL
         THROW 50000, 'Arguments was null!', 1
     ELSE
-        DELETE dbo.tFileExtension
+        DELETE dbo.tRole
         WHERE Id = @id
 END
