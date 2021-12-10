@@ -54,6 +54,7 @@ namespace FileSharer.Business.Services.Implementations
 
         public void Update(int id, User newUser)
         {
+            newUser.PasswordHash = _userRepository.GetById(id).PasswordHash;
             _userRepository.Update(id, newUser);
         }
     }

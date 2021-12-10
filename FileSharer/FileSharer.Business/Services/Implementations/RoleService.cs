@@ -4,11 +4,11 @@ using FileSharer.Data.Repositories.Interfaces;
 using System.Collections.Generic;
 namespace FileSharer.Business.Services.Implementations
 {
-    public class RoleService : IService<Role>
+    public class RoleService : IRoleService
     {
-        private readonly IRepository<Role> _roleRepository;
+        private readonly IRoleRepository _roleRepository;
 
-        public RoleService(IRepository<Role> roleRepository)
+        public RoleService(IRoleRepository roleRepository)
         {
             _roleRepository = roleRepository;
         }
@@ -33,6 +33,13 @@ namespace FileSharer.Business.Services.Implementations
         public Role GetById(int id)
         {
             var role = _roleRepository.GetById(id);
+
+            return role;
+        }
+
+        public Role GetByName(string name)
+        {
+            var role = _roleRepository.GetByName(name);
 
             return role;
         }

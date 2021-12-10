@@ -18,7 +18,7 @@ namespace FileSharer.Data.Dependency
             services.AddScoped<IFileCategoryRepository, FileCategoryRepository>();
             services.AddScoped<IRepository<FileExtension>, FileExtensionRepository>();
             services.AddScoped<IFileItemRepository, FileItemRepository>();
-            services.AddScoped<IRepository<Role>, RoleRepository>();
+            services.AddScoped<IRoleRepository, RoleRepository>();
             services.AddScoped<IUserRepository, UserRepository>();
 
             services.AddSingleton<IDataConverter<FileCategory>, FileCategoryConverter>();

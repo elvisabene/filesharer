@@ -9,7 +9,7 @@ using System.Data.SqlClient;
 
 namespace FileSharer.Data.Repositories.Implementations
 {
-    public class RoleRepository : IRepository<Role>
+    public class RoleRepository : IRoleRepository
     {
         private readonly IDataConverter<Role> _converter;
 
@@ -63,6 +63,20 @@ namespace FileSharer.Data.Repositories.Implementations
 
             SqlCommand command = new SqlCommand(query);
             command.Parameters.AddWithValue("@id", id);
+
+            var role = _dataContext.ExecuteQueryAsSingle(command, _converter);
+
+            return role;
+        }
+
+        public Role GetByName(string name)
+        {
+            string view = DatabaseConstants.ViewName.AllRoles;
+            string query = $"SELECT * FROM {view} " +
+                           $"WHERE Name = @name";
+
+            SqlCommand command = new SqlCommand(query);
+            command.Parameters.AddWithValue("@name", name);
 
             var role = _dataContext.ExecuteQueryAsSingle(command, _converter);
 
