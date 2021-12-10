@@ -9,6 +9,8 @@ namespace FileSharer.Business.Services.Interfaces
 
         IEnumerable<FileItem> GetAllByCategoryId(int categoryId);
 
+        IEnumerable<FileItem> GetAllByName(string name);
+
         void IncrementDownloadsCount(int id);
     }
 }

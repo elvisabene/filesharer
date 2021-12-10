@@ -53,7 +53,7 @@ namespace FileSharer.Data.DataConverters
 
             if (!reader.HasRows)
             {
-                throw new ArgumentException();
+                return null;
             }
 
             var fileItems = new List<FileItem>();

@@ -1,10 +1,24 @@
-﻿@model IEnumerable<FileSharer.Web.Models.File.FileViewModel>
+﻿@model FileSharer.Web.Models.File.SearchViewModel
+@using FileSharer.Web.Models.File
 
 @{
     ViewData["Title"] = "Files list";
+    var fileList = ViewData["Files"];
 }
 
-<h1 class="text-dark">Files list</h1>
+<h1 class="text-dark">Full list of files</h1>
+
+<form class="form-inline mb-md-3" method="post" asp-action="Search">
+    <div class="form-group mx-md-3">
+        <select class="form-control" asp-for="Category" asp-items=@(ViewData["Categories"] as SelectList)></select>
+    </div>
+    <div class="form-group mx-md-3">
+        <input class="form-control" type="text" placeholder="Input file name..." asp-for="FileName" />
+    </div>
+    <div class="form-group mx-md-3">
+        <button class="btn btn-success form-control" type="submit">Search</button>
+    </div>
+</form>
 
 <p>
     <a class="btn btn-primary" asp-action="Upload">Upload my file</a>
@@ -13,46 +27,46 @@
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.Name)
+                Name
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Category)
+                Category
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Author)
+                Author
             </th>
             <th>
-                @(Html.DisplayNameFor(model => model.Size)+"(KB)")
+                Size(KB)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.DownloadsCount)
+                DownloadsCount
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.CreateDate)
+                CreateDate
             </th>
             <th></th>
         </tr>
     </thead>
     <tbody>
-@foreach (var file in Model) {
+@foreach (var file in fileList as IEnumerable<FileViewModel>) {
         <tr>
             <td>
-                @Html.DisplayFor(modelItem => file.Name)
+                @file.Name
             </td>
             <td>
-                @Html.DisplayFor(modelItem => file.Category)
+                @file.Category
             </td>
             <td>
-                @Html.DisplayFor(modelItem => file.Author)
+                @file.Author
             </td>
             <td>
-                @Html.DisplayFor(modelItem => file.Size)
+                @file.Size
             </td>
             <td>
-                @Html.DisplayFor(modelItem => file.DownloadsCount)
+                @file.DownloadsCount
             </td>
             <td>
-                @Html.DisplayFor(modelItem => file.CreateDate)
+                @file.CreateDate.Date
             </td>
             <td>
                 @Html.ActionLink("Edit", "Edit", new { id = file.Id })

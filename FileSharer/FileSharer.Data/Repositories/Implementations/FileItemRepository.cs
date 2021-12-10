@@ -83,6 +83,19 @@ namespace FileSharer.Data.Repositories.Implementations
 
             return fileItems;
         }
+        public IEnumerable<FileItem> GetAllByName(string name)
+        {
+            string view = DatabaseConstants.ViewName.AllFileItems;
+            string query = $"SELECT * FROM {view} " +
+                           $"WHERE Name = @name";
+
+            SqlCommand command = new SqlCommand(query);
+            command.Parameters.AddWithValue("@name", name);
+
+            var fileItems = _dataContext.ExecuteQueryAsList(command, _converter);
+
+            return fileItems;
+        }
 
         public FileItem GetById(int id)
         {
@@ -110,6 +123,7 @@ namespace FileSharer.Data.Repositories.Implementations
 
             _dataContext.ExecuteNonQuery(command);
         }
+
 
         public void IncrementDownloadsCount(int id)
         {

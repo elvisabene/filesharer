@@ -46,7 +46,7 @@ namespace FileSharer.Web.Controllers
         {
             if (!ModelState.IsValid)
             {
-                return RedirectToAction("Upload");
+                return RedirectToAction(nameof(Upload));
             }
 
             var category = _fileCategoryService.GetByName(uploadModel.Category);
@@ -55,7 +55,7 @@ namespace FileSharer.Web.Controllers
             {
                 ModelState.AddModelError("", ErrorMessage.NoSuchCategory);
 
-                return RedirectToAction("Upload");
+                return RedirectToAction(nameof(Upload));
             }
 
             var extension = uploadModel.File.FileName.Split('.')[^1];
@@ -66,13 +66,13 @@ namespace FileSharer.Web.Controllers
             {
                 ModelState.AddModelError("", ErrorMessage.UnsupportedFormat);
 
-                return RedirectToAction("Upload");
+                return RedirectToAction(nameof(Upload));
             }
 
             var file = CreateFile(uploadModel, category, extensionFromDatabase);
             _fileItemService.Add(file);
 
-            return RedirectToAction("List");
+            return RedirectToAction(nameof(List));
         }
 
         [HttpGet]
@@ -87,8 +87,8 @@ namespace FileSharer.Web.Controllers
         [HttpGet]
         public IActionResult List()
         {
-            var fileModels = new List<FileViewModel>();
             var fileItems = _fileItemService.GetAll();
+            var fileModels = new List<FileViewModel>();
 
             foreach (var file in fileItems)
             {
@@ -96,7 +96,11 @@ namespace FileSharer.Web.Controllers
                 fileModels.Add(fileModel);
             }
 
-            return View(fileModels);
+            ViewData["Files"] = fileModels;
+            var selectList = GetSelectCategoryList();
+            ViewData["Categories"] = selectList;
+
+            return View();
         }
 
         [HttpGet]
@@ -128,7 +132,7 @@ namespace FileSharer.Web.Controllers
             var file = MapToFile(editFileModel);
             _fileItemService.Update(editFileModel.Id, file);
 
-            return RedirectToAction("List");
+            return RedirectToAction(nameof(List));
         }
 
         [HttpPost]
@@ -136,7 +140,43 @@ namespace FileSharer.Web.Controllers
         {
             _fileItemService.Delete(id);
 
-            return RedirectToAction("List");
+            return RedirectToAction(nameof(List));
+        }
+
+        [HttpPost]
+        public IActionResult Search(SearchViewModel searchModel)
+        {
+            var category = _fileCategoryService.GetByName(searchModel.Category);
+            var fileName = searchModel.FileName;
+
+            var files = _fileItemService.GetAll();
+
+            if (category != null)
+            {
+                var filesByCategory = _fileItemService.GetAllByCategoryId(category.Id);
+
+                files = filesByCategory is null ? new List<FileItem>() : files.Where(
+                    file => filesByCategory.Any(fileByCategory => fileByCategory.Id == file.Id));
+            }
+
+            if (searchModel.FileName != null)
+            {
+                files = files.Where(file => file.Name.Contains(fileName));
+            }
+
+            var fileModels = new List<FileViewModel>();
+
+            foreach (var file in files)
+            {
+                var fileModel = MapToModel(file);
+                fileModels.Add(fileModel);
+            }
+
+            ViewData["Files"] = fileModels;
+            var selectList = GetSelectCategoryList();
+            ViewData["Categories"] = selectList;
+
+            return View(nameof(List));
         }
 
         private FileItem MapToFile(EditFileViewModel editModel)
@@ -203,6 +243,22 @@ namespace FileSharer.Web.Controllers
             };
 
             return file;
+        }
+
+        private SelectList GetSelectCategoryList()
+        {
+            var categoriesList = _fileCategoryService.GetAll();
+
+            var allCategoriesItem = new FileCategory()
+            {
+                Id = 0,
+                Name = "All categories",
+            };
+
+            categoriesList = categoriesList.Prepend(allCategoriesItem);
+            var selectList = (new SelectList(categoriesList, "Name", "Name"));
+
+            return selectList;
         }
     }
 }
