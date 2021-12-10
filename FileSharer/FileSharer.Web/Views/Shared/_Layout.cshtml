@@ -25,9 +25,12 @@
                     <li>
                         <a class="nav-link btn text-light" asp-controller="File" asp-action="List">Files</a>
                     </li>
-                    <li>
-                        <a class="nav-link btn text-light" asp-controller="User" asp-action="List">Users</a>
-                    </li>
+                    @if (User.IsInRole("Admin"))
+                    {
+                        <li>
+                            <a class="nav-link btn text-light" asp-controller="User" asp-action="List">Users</a>
+                        </li>
+                    }
                 </ul>
                 @await Html.PartialAsync("_UserLoginPartial")
             </div>

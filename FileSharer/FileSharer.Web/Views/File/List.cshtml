@@ -69,10 +69,11 @@
                 @file.CreateDate.ToShortDateString()
             </td>
             <td>
-                @Html.ActionLink("Edit", "Edit", new { id = file.Id })
-                @Html.ActionLink("Details", "Details", new { id = file.Id })
-                <button class="btn btn-danger" data-toggle="modal" data-target="#modal-@file.Id">Delete</button>
+                <a class="btn btn-outline-warning text-dark" asp-action="Edit" asp-route-id="@file.Id">Edit</a>
+                <a class="btn btn-outline-info" asp-action="Details" asp-route-id="@file.Id">Details</a>
+                <button class="btn btn-outline-danger" data-toggle="modal" data-target="#modal-@file.Id">Delete</button>
                 @await Html.PartialAsync("_ModalDeletePartial", new DeleteItemModel { Id = file.Id, Name = file.Name })
+                <a href="#" class="btn btn-outline-primary rounded-circle">&#8659;</a>
             </td>
         </tr>
 }

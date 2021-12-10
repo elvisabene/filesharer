@@ -34,8 +34,8 @@
                 @Html.DisplayFor(modelItem => user.Role)
             </td>
             <td>
-                @Html.ActionLink("Edit", "Edit", new { id = user.Id })
-                <button class="btn btn-danger" data-toggle="modal" data-target="#modal-@user.Id">Delete</button>
+                <a class="btn btn-outline-warning" asp-action="Edit" asp-route-id="@user.Id">Edit</a>
+                <button class="btn btn-outline-danger" data-toggle="modal" data-target="#modal-@user.Id">Delete</button>
                 @await Html.PartialAsync("_ModalDeletePartial", new DeleteItemModel { Id = user.Id, Name = user.Name })
             </td>
         </tr>
