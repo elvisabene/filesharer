@@ -7,55 +7,60 @@
 
 <h2 class="text-dark">@ViewData["FileName"]</h2>
 
-<div class="text-dark">
-    <h4>File Info</h4>
-    <hr />
-    <dl class="row">
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Name)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Name)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Category)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Category)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Author)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Author)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Description)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Description)
-        </dd>
-        <dt class="col-sm-2">
-            @(Html.DisplayNameFor(model => model.Size) + "(KB)")
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Size)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.DownloadsCount)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.DownloadsCount)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.CreateDate)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.CreateDate)
-        </dd>
-    </dl>
-</div>
+<div class="container text-dark row">
+    <div class="row">
+        <div class="col">
+            <h4>File Info</h4>
+            <hr />
+            <dl class="row">
+                <dt class="col-lg-4">
+                    @Html.DisplayNameFor(model => model.Name):
+                </dt>
+                <dd class="col-lg-8">
+                    @Html.DisplayFor(model => model.Name)
+                </dd>
+                <dt class="col-lg-4">
+                    @Html.DisplayNameFor(model => model.Category):
+                </dt>
+                <dd class="col-lg-8">
+                    @Html.DisplayFor(model => model.Category)
+                </dd>
+                <dt class="col-lg-4">
+                    @Html.DisplayNameFor(model => model.Author):
+                </dt>
+                <dd class="col-lg-8">
+                    @Html.DisplayFor(model => model.Author)
+                </dd>
+                <dt class="col-lg-4">
+                    @Html.DisplayNameFor(model => model.Description):
+                </dt>
+                <dd class="col-lg-8">
+                    @Html.DisplayFor(model => model.Description)
+                </dd>
+                <dt class="col-lg-4">
+                    @(Html.DisplayNameFor(model => model.Size) + "(KB)"):
+                </dt>
+                <dd class="col-lg-8">
+                    @Html.DisplayFor(model => model.Size)
+                </dd>
+                <dt class="col-lg-4">
+                    @Html.DisplayNameFor(model => model.DownloadsCount):
+                </dt>
+                <dd class="col-lg-8">
+                    @Html.DisplayFor(model => model.DownloadsCount)
+                </dd>
+                <dt class="col-lg-4">
+                    @Html.DisplayNameFor(model => model.CreateDate):
+                </dt>
+                <dd class="col-lg-8">
+                    @Html.DisplayFor(model => model.CreateDate)
+                </dd>
+            </dl>
+        </div>
+    </div>
+    </div>
 <div>
-    <a asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-outline-warning text-dark">Edit</a>
-    <a class="btn btn-outline-primary" asp-action="List">Back to List</a>
+    <a class="btn btn-outline-primary btn-lg rounded-circle mx-md-2" href="#">&#8659;</a>
+    <a class="btn btn-outline-warning text-dark mx-md-2" asp-action="Edit" asp-route-id="@Model.Id">Edit</a>
+    <a class="btn btn-outline-primary mx-md-2" asp-action="List">Back to List</a>
 </div>

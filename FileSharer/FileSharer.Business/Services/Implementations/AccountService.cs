@@ -16,9 +16,12 @@ namespace FileSharer.Business.Services.Implementations
     {
         private readonly IUserService _userService;
 
-        public AccountService(IUserService userService)
+        private readonly IRoleService _roleService;
+
+        public AccountService(IUserService userService, IRoleService roleService)
         {
             _userService = userService;
+            _roleService = roleService;
         }
 
         public bool IsUserExists(string email)
@@ -57,11 +60,14 @@ namespace FileSharer.Business.Services.Implementations
                 throw new ArgumentNullException(nameof(user));
             }
 
+            var role = _roleService.GetById(user.RoleId);
+
             var claims = new List<Claim>()
             {
                 new Claim(CustomClaimTypes.Id, user.Id.ToString()),
                 new Claim(ClaimTypes.Email, user.Email),
                 new Claim(ClaimTypes.Name, user.Name),
+                new Claim(ClaimTypes.Role, role.Name),
             };
 
             var identity = new ClaimsIdentity(claims, "AuthenticationCookie");

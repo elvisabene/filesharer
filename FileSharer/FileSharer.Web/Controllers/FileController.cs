@@ -2,14 +2,15 @@
 using FileSharer.Common.Constants;
 using FileSharer.Common.Entities;
 using FileSharer.Web.Models.File;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
-using System;
 using System.Collections.Generic;
 using System.Linq;
 
 namespace FileSharer.Web.Controllers
 {
+    [Authorize]
     public class FileController : Controller
     {
         private readonly IFileItemService _fileItemService;
@@ -31,13 +32,10 @@ namespace FileSharer.Web.Controllers
             _fileExtensionService = fileExtensionService;
             _userService = userService;
         }
-
+        
         [HttpGet]
         public IActionResult Upload()
         {
-            var categoriesList = _fileCategoryService.GetAll();
-            ViewData["Categories"] = new SelectList(categoriesList, "Name", "Name");
-
             return View();
         }
 
@@ -46,7 +44,7 @@ namespace FileSharer.Web.Controllers
         {
             if (!ModelState.IsValid)
             {
-                return RedirectToAction(nameof(Upload));
+                return View();
             }
 
             var category = _fileCategoryService.GetByName(uploadModel.Category);
@@ -55,7 +53,7 @@ namespace FileSharer.Web.Controllers
             {
                 ModelState.AddModelError("", ErrorMessage.NoSuchCategory);
 
-                return RedirectToAction(nameof(Upload));
+                return View();
             }
 
             var extension = uploadModel.File.FileName.Split('.')[^1];
@@ -66,7 +64,7 @@ namespace FileSharer.Web.Controllers
             {
                 ModelState.AddModelError("", ErrorMessage.UnsupportedFormat);
 
-                return RedirectToAction(nameof(Upload));
+                return View();
             }
 
             var file = CreateFile(uploadModel, category, extensionFromDatabase);
@@ -75,6 +73,7 @@ namespace FileSharer.Web.Controllers
             return RedirectToAction(nameof(List));
         }
 
+        [AllowAnonymous]
         [HttpGet]
         public IActionResult Details(int id)
         {
@@ -84,6 +83,7 @@ namespace FileSharer.Web.Controllers
             return View(fileModel);
         }
 
+        [AllowAnonymous]
         [HttpGet]
         public IActionResult List()
         {
@@ -103,6 +103,7 @@ namespace FileSharer.Web.Controllers
             return View();
         }
 
+        [Authorize (Roles = Roles.OnlyEditors)]
         [HttpGet]
         public IActionResult Edit(int id)
         {
@@ -112,6 +113,7 @@ namespace FileSharer.Web.Controllers
             return View(editFileModel);
         }
 
+        [Authorize(Roles = Roles.OnlyEditors)]
         [HttpPost]
         public IActionResult Edit(EditFileViewModel editFileModel)
         {
@@ -135,6 +137,7 @@ namespace FileSharer.Web.Controllers
             return RedirectToAction(nameof(List));
         }
 
+        [Authorize(Roles = Roles.OnlyEditors)]
         [HttpPost]
         public IActionResult Delete(int id)
         {
@@ -143,6 +146,7 @@ namespace FileSharer.Web.Controllers
             return RedirectToAction(nameof(List));
         }
 
+        [AllowAnonymous]
         [HttpPost]
         public IActionResult Search(SearchViewModel searchModel)
         {

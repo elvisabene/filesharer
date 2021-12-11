@@ -1,7 +1,12 @@
 ﻿@model FileSharer.Web.Models.User.EditUserViewModel
+@inject FileSharer.Business.Services.Interfaces.IRoleService roleService
 
 @{
     ViewData["Title"] = "Edit";
+
+    var roles = roleService.GetAll();
+    var selectRolesList = new SelectList(roles, "Name", "Name");
+    ViewData["Roles"] = selectRolesList;
 }
 
 <h4>Edit user</h4>
@@ -17,7 +22,7 @@
             </div>
             <div class="form-group">
                 <label asp-for="Email" class="control-label">Email</label>
-                <input asp-for="Email" class="form-control" />
+                <input asp-for="Email" class="form-control"/>
                 <span asp-validation-for="Email" class="text-danger"></span>
             </div>
             <div class="form-group">
@@ -26,13 +31,13 @@
                 <span asp-validation-for="Role" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <input type="submit" value="Save" class="btn btn-outline-success" />
+                <input type="submit" value="Save" class="btn btn-outline-success m-1" />
             </div>
         </form>
     </div>
 </div>
 
 <div>
-    <a class="btn btn-outline-primary" asp-action="List">Back to List</a>
+    <a class="btn btn-outline-primary m-1" asp-action="List">Back to List</a>
 </div>
 

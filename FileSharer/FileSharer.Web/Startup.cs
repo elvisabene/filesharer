@@ -25,7 +25,8 @@ namespace FileSharer.Web
             services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
                 .AddCookie(options =>
                 {
-                    options.LoginPath = new PathString("/Account/Login"); 
+                    options.LoginPath = new PathString("/Account/Login");
+                    options.AccessDeniedPath = new PathString("/Home/Index");
                 });
 
             services.AddControllersWithViews();

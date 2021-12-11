@@ -1,4 +1,5 @@
-﻿@model IEnumerable<FileSharer.Web.Models.User.UserViewModel>
+﻿@using FileSharer.Common.Constants
+@model IEnumerable<FileSharer.Web.Models.User.UserViewModel>
 
 @{
     ViewData["Title"] = "List";
@@ -34,9 +35,12 @@
                 @Html.DisplayFor(modelItem => user.Role)
             </td>
             <td>
-                <a class="btn btn-outline-warning" asp-action="Edit" asp-route-id="@user.Id">Edit</a>
-                <button class="btn btn-outline-danger" data-toggle="modal" data-target="#modal-@user.Id">Delete</button>
-                @await Html.PartialAsync("_ModalDeletePartial", new DeleteItemModel { Id = user.Id, Name = user.Name })
+                @if (user.Role != Roles.Admin)
+                {
+                    <a class="btn btn-outline-warning m-1" asp-action="Edit" asp-route-id="@user.Id">Edit</a>
+                    <button class="btn btn-outline-danger m-1" data-toggle="modal" data-target="#modal-@user.Id">Delete</button>
+                    @await Html.PartialAsync("_ModalDeletePartial", new DeleteItemModel { Id = user.Id, Name = user.Name })
+                }
             </td>
         </tr>
 }

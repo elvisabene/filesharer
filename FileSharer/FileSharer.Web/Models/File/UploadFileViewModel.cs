@@ -11,7 +11,7 @@ namespace FileSharer.Web.Models.File
 
         public string Description { get; set; }
 
-        [Required (ErrorMessage = ErrorMessage.RequiredField)]
+        [Required (ErrorMessage = ErrorMessage.NoFileSelected)]
         public IFormFile File { get; set; }
     }
 }

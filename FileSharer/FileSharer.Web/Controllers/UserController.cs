@@ -2,12 +2,13 @@
 using FileSharer.Common.Constants;
 using FileSharer.Common.Entities;
 using FileSharer.Web.Models.User;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.Rendering;
 using System.Collections.Generic;
 
 namespace FileSharer.Web.Controllers
 {
+    [Authorize(Roles = Roles.Admin)]
     public class UserController : Controller
     {
         private readonly IUserService _userService;
@@ -48,11 +49,6 @@ namespace FileSharer.Web.Controllers
         {
             var user = _userService.GetById(id);
             var role = _roleService.GetById(user.RoleId);
-
-            var roles = _roleService.GetAll();
-            var selectRolesList = new SelectList(roles, "Name", "Name");
-
-            ViewData["Roles"] = selectRolesList;
 
             var editModel = new EditUserViewModel()
             {

@@ -1,7 +1,10 @@
 ﻿@model FileSharer.Web.Models.File.UploadFileViewModel
+@inject FileSharer.Business.Services.Interfaces.IFileCategoryService fileCategoryService
 
 @{
     ViewData["Title"] = "Upload";
+    var categoriesList = fileCategoryService.GetAll();
+    ViewData["Categories"] = new SelectList(categoriesList, "Name", "Name");
 }
 
 <h4>Upload file</h4>
@@ -12,24 +15,26 @@
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
                 <select class="form-control" asp-for="Category" asp-items=@(ViewData["Categories"] as SelectList)></select>
+                <span asp-validation-for="Category" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <textarea class="form-control" placeholder="Description"></textarea>
             </div>
             <div class="form-group custom-file">
-                <input type="file" class="custom-file-input form-control" asp-for="File">
-                <label class="custom-file-label" asp-for="File">
+                <input type="file" class="custom-file-input form-control-file" id="customFile" asp-for="File">
+                <label class="custom-file-label form-control" for="customFile" asp-for="File">
                     Select file...
                 </label>
+                <span asp-validation-for="File" class="text-danger"></span>
             </div>
-            <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
+            <div class="form-group my-3">
+                <input type="submit" value="Upload" class="btn btn-outline-success align-content-center" />
             </div>
         </form>
     </div>
 </div>
 
 <div>
-    <a asp-action="List">Back to List</a>
+    <a class="btn btn-outline-primary" asp-action="List">Back to List</a>
 </div>
 
