@@ -56,12 +56,11 @@ namespace FileSharer.Web.Helpers.CustomHtmlHelpers
             return htmlString;
         }
 
-        // TODO link
-        public static HtmlString DownloadButton(this IHtmlHelper html, int routeId)
+        public static HtmlString DownloadButton(this IHtmlHelper html, int routeId, string name)
         {
             TagBuilder link = new TagBuilder("a");
             link.Attributes.Add("class", "btn btn-outline-primary rounded-circle m-1");
-            link.Attributes.Add("href", $"#");
+            link.Attributes.Add("href", $"Download/{routeId}?name={name}");
 
             link.InnerHtml.AppendHtml("&#8659;");
 

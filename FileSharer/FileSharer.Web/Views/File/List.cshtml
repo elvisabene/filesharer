@@ -60,7 +60,7 @@
                 @Html.DetailsButton(file.Id)
                 @Html.DeleteButton(User, Roles.OnlyEditors, file.Id)
                 @await Html.PartialAsync("_ModalDeletePartial", new DeleteItemModel { Id = file.Id, Name = file.Name })
-                @Html.DownloadButton(file.Id)
+                @Html.DownloadButton(file.Id, file.Name)
             </td>
         </tr>
 }

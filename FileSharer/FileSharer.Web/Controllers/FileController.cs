@@ -27,13 +27,16 @@ namespace FileSharer.Web.Controllers
 
         private readonly ILogHelper _logHelper;
 
+        private readonly IFileStorageService _storageService;
+
         public FileController(
             IFileItemService fileItemService,
             IFileCategoryService fileCategoryService,
             IService<FileExtension> fileExtensionService,
             IUserService userService,
             ILogger<FileController> logger,
-            ILogHelper logHelper)
+            ILogHelper logHelper,
+            IFileStorageService storageService)
         {
             _fileItemService = fileItemService;
             _fileCategoryService = fileCategoryService;
@@ -41,8 +44,19 @@ namespace FileSharer.Web.Controllers
             _userService = userService;
             _logger = logger;
             _logHelper = logHelper;
+            _storageService = storageService;
         }
-        
+
+        [AllowAnonymous]
+        public IActionResult Download(int id, [FromQuery] string name)
+        {
+            var stream = _storageService.Download(name, id, out string contentType);
+
+            _fileItemService.IncrementDownloadsCount(id);
+
+            return File(stream, contentType);
+        }
+
         [HttpGet]
         public IActionResult Upload()
         {
@@ -82,6 +96,8 @@ namespace FileSharer.Web.Controllers
 
             var file = CreateFile(uploadModel, category, extensionFromDatabase);
             _fileItemService.Add(file);
+
+            _storageService.Upload(uploadModel.File);
 
             _logger.LogInformation(
                 _logHelper.GetUserActionString(User, "File", nameof(Upload), "POST"));
@@ -125,7 +141,7 @@ namespace FileSharer.Web.Controllers
             return View();
         }
 
-        [Authorize (Roles = Roles.OnlyEditors)]
+        [Authorize(Roles = Roles.OnlyEditors)]
         [HttpGet]
         public IActionResult Edit(int id)
         {
@@ -272,12 +288,12 @@ namespace FileSharer.Web.Controllers
 
             var file = new FileItem()
             {
-                 Name = name,
-                 FileCategoryId = category.Id,
-                 FileExtensionId = extension.Id,
-                 Description = uploadFile.Description ?? string.Empty,
- 
-                 UserId = userId,
+                Name = name,
+                FileCategoryId = category.Id,
+                FileExtensionId = extension.Id,
+                Description = uploadFile.Description ?? string.Empty,
+
+                UserId = userId,
             };
 
             return file;

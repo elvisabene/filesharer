@@ -23,8 +23,8 @@ namespace FileSharer.Web
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddSingleton<ILogHelper, LoggingHelper>();
+            services.AddBll(Configuration.GetSection("ConnectionStrings"));
 
-            services.AddBll(Configuration.GetConnectionString("DefaultConnection"));
             services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
                 .AddCookie(options =>
                 {

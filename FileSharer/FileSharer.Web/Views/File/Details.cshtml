@@ -60,7 +60,7 @@
     </div>
     </div>
 <div>
-    @Html.DownloadButton(Model.Id)
+    @Html.DownloadButton(Model.Id, Model.Name)
     @Html.EditButton(User, Roles.OnlyEditors, Model.Id)
     @Html.BackToListButton("File")
 </div>
