@@ -12,10 +12,14 @@ namespace FileSharer.Common.Entities
 
         public string Description { get; set; }
 
+        public DateTime CreateDate { get; set; }
+
+        public int Size { get; set; }
+
+        public int DownloadsCount { get; set; }
+
         public int UserId { get; set; }
 
         public int FileCategoryId { get; set; }
-
-        public DateTime CreateDate { get; set; }
     }
 }

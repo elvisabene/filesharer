@@ -23,7 +23,7 @@ namespace FileSharer.Data.Repositories.Implementations
 
         public void Add(FileItem fileItem)
         {
-            string procedure = DatabaseConstants.StoredProcedureName.AddFileItem;
+            string procedure = DatabaseConstants.StoredProcedureName.ForAdd.FileItem;
             SqlParameter[] parameters = _converter.ConvertToSqlParameters(fileItem);
 
             SqlCommand command = new SqlCommand(procedure);
@@ -35,7 +35,7 @@ namespace FileSharer.Data.Repositories.Implementations
 
         public void Delete(int id)
         {
-            string procedure = DatabaseConstants.StoredProcedureName.DeleteFileItem;
+            string procedure = DatabaseConstants.StoredProcedureName.ForDelete.FileItem;
 
             SqlCommand command = new SqlCommand(procedure);
             command.CommandType = CommandType.StoredProcedure;
@@ -59,7 +59,7 @@ namespace FileSharer.Data.Repositories.Implementations
         public IEnumerable<FileItem> GetAllByCategoryId(int categoryId)
         {
             string view = DatabaseConstants.ViewName.AllFileItems;
-            string query = $"SELECT * FROM {view}" +
+            string query = $"SELECT * FROM {view} " +
                            $"WHERE CategoryId = @categoryId";
 
             SqlCommand command = new SqlCommand(query);
@@ -73,7 +73,7 @@ namespace FileSharer.Data.Repositories.Implementations
         public IEnumerable<FileItem> GetAllByUserId(int userId)
         {
             string view = DatabaseConstants.ViewName.AllFileItems;
-            string query = $"SELECT * FROM {view}" +
+            string query = $"SELECT * FROM {view} " +
                            $"WHERE UserId = @userId";
 
             SqlCommand command = new SqlCommand(query);
@@ -83,11 +83,24 @@ namespace FileSharer.Data.Repositories.Implementations
 
             return fileItems;
         }
+        public IEnumerable<FileItem> GetAllByName(string name)
+        {
+            string view = DatabaseConstants.ViewName.AllFileItems;
+            string query = $"SELECT * FROM {view} " +
+                           $"WHERE Name = @name";
+
+            SqlCommand command = new SqlCommand(query);
+            command.Parameters.AddWithValue("@name", name);
+
+            var fileItems = _dataContext.ExecuteQueryAsList(command, _converter);
+
+            return fileItems;
+        }
 
         public FileItem GetById(int id)
         {
             string view = DatabaseConstants.ViewName.AllFileItems;
-            string query = $"SELECT * FROM {view}" +
+            string query = $"SELECT * FROM {view} " +
                            $"WHERE Id = @id";
 
             SqlCommand command = new SqlCommand(query);
@@ -100,12 +113,25 @@ namespace FileSharer.Data.Repositories.Implementations
 
         public void Update(int id, FileItem newFileItem)
         {
-            string procedure = DatabaseConstants.StoredProcedureName.UpdateFileItem;
+            string procedure = DatabaseConstants.StoredProcedureName.ForUpdate.FileItem;
             SqlParameter[] parameters = _converter.ConvertToSqlParameters(newFileItem);
 
             SqlCommand command = new SqlCommand(procedure);
+            command.CommandType = CommandType.StoredProcedure;
             command.Parameters.AddWithValue("@id", id);
             command.Parameters.AddRange(parameters);
+
+            _dataContext.ExecuteNonQuery(command);
+        }
+
+
+        public void IncrementDownloadsCount(int id)
+        {
+            string procedure = DatabaseConstants.StoredProcedureName.ForUpdate.DownloadsCount;
+
+            SqlCommand command = new SqlCommand(procedure);
+            command.CommandType = CommandType.StoredProcedure;
+            command.Parameters.AddWithValue("@id", id);
 
             _dataContext.ExecuteNonQuery(command);
         }

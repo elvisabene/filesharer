@@ -23,7 +23,7 @@ namespace FileSharer.Data.Repositories.Implementations
 
         public void Add(User user)
         {
-            string procedure = DatabaseConstants.StoredProcedureName.AddUser;
+            string procedure = DatabaseConstants.StoredProcedureName.ForAdd.User;
             SqlParameter[] parameters = _converter.ConvertToSqlParameters(user);
 
             SqlCommand command = new SqlCommand(procedure);
@@ -35,7 +35,7 @@ namespace FileSharer.Data.Repositories.Implementations
 
         public void Delete(int id)
         {
-            string procedure = DatabaseConstants.StoredProcedureName.DeleteUser;
+            string procedure = DatabaseConstants.StoredProcedureName.ForDelete.User;
 
             SqlCommand command = new SqlCommand(procedure);
             command.CommandType = CommandType.StoredProcedure;
@@ -59,7 +59,7 @@ namespace FileSharer.Data.Repositories.Implementations
         public IEnumerable<User> GetAllByName(string name)
         {
             string view = DatabaseConstants.ViewName.AllUsers;
-            string query = $"SELECT * FROM {view}" +
+            string query = $"SELECT * FROM {view} " +
                            $"WHERE Name = @name";
 
             SqlCommand command = new SqlCommand(query);
@@ -73,7 +73,7 @@ namespace FileSharer.Data.Repositories.Implementations
         public User GetByEmail(string email)
         {
             string view = DatabaseConstants.ViewName.AllUsers;
-            string query = $"SELECT * FROM {view}" +
+            string query = $"SELECT * FROM {view} " +
                            $"WHERE Email = @email";
 
             SqlCommand command = new SqlCommand(query);
@@ -87,7 +87,7 @@ namespace FileSharer.Data.Repositories.Implementations
         public User GetById(int id)
         {
             string view = DatabaseConstants.ViewName.AllUsers;
-            string query = $"SELECT * FROM {view}" +
+            string query = $"SELECT * FROM {view} " +
                            $"WHERE Id = @id";
 
             SqlCommand command = new SqlCommand(query);
@@ -100,7 +100,7 @@ namespace FileSharer.Data.Repositories.Implementations
 
         public void Update(int id, User newUser)
         {
-            string procedure = DatabaseConstants.StoredProcedureName.UpdateUser;
+            string procedure = DatabaseConstants.StoredProcedureName.ForUpdate.User;
             SqlParameter[] parameters = _converter.ConvertToSqlParameters(newUser);
 
             SqlCommand command = new SqlCommand(procedure);

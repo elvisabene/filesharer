@@ -1,0 +1,48 @@
+﻿@using FileSharer.Common.Constants
+@model IEnumerable<FileSharer.Web.Models.User.UserViewModel>
+
+@{
+    ViewData["Title"] = "List";
+}
+
+<h1>Users</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Email)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Role)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var user in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => user.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => user.Email)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => user.Role)
+            </td>
+            <td>
+                @if (user.Role != Roles.Admin)
+                {
+                    @Html.EditButton(User, Roles.Admin, user.Id)
+                    @Html.DeleteButton(User, Roles.Admin, user.Id)
+                    @await Html.PartialAsync("_ModalDeletePartial", new DeleteItemModel { Id = user.Id, Name = user.Name })
+                }
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

@@ -17,7 +17,7 @@ namespace FileSharer.Data.DataConverters
 
             if (!reader.HasRows)
             {
-                throw new ArgumentException();
+                return null;
             }
 
             if (withRead)
@@ -29,13 +29,16 @@ namespace FileSharer.Data.DataConverters
             {
                 Id = (int)reader["Id"],
                 Name = (string)reader["Name"],
-                FileExtensionId = (int)reader["FileExtensionId"],
+                FileExtensionId = (int)reader["ExtensionId"],
 
                 Description = reader["Description"] == DBNull.Value ?
                     string.Empty : (string)reader["Description"],
 
+                CreateDate = (DateTime)reader["CreateDate"],
+                Size = (int)reader["Size"],
+                DownloadsCount = (int)reader["DownloadsCount"],
                 UserId = (int)reader["UserId"],
-                FileCategoryId = (int)reader["UserId"],
+                FileCategoryId = (int)reader["CategoryId"],
             };
 
             return fileItem;
@@ -50,7 +53,7 @@ namespace FileSharer.Data.DataConverters
 
             if (!reader.HasRows)
             {
-                throw new ArgumentException();
+                return null;
             }
 
             var fileItems = new List<FileItem>();
@@ -90,6 +93,12 @@ namespace FileSharer.Data.DataConverters
                     ParameterName = "@description",
                     DbType = DbType.String,
                     Value = fileItem.Description,
+                },
+                new SqlParameter()
+                {
+                    ParameterName = "@size",
+                    DbType = DbType.Int32,
+                    Value = fileItem.Size,
                 },
                 new SqlParameter()
                 {

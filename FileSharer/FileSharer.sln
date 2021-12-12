@@ -3,13 +3,15 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.31702.278
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FileSharer.Data", "FileSharer.Data\FileSharer.Data.csproj", "{36E85481-4A49-4388-9AAD-F485DBB6A592}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FileSharer.Data", "FileSharer.Data\FileSharer.Data.csproj", "{36E85481-4A49-4388-9AAD-F485DBB6A592}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FileSharer.Business", "FileSharer.Business\FileSharer.Business.csproj", "{907052FC-84DB-4BF7-8816-01403496358C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FileSharer.Business", "FileSharer.Business\FileSharer.Business.csproj", "{907052FC-84DB-4BF7-8816-01403496358C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FileSharer.Web", "FileSharer.Web\FileSharer.Web.csproj", "{6038CB38-C4D9-4E33-840C-49DF880AF320}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FileSharer.Web", "FileSharer.Web\FileSharer.Web.csproj", "{6038CB38-C4D9-4E33-840C-49DF880AF320}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FileSharer.Common", "FileSharer.Common\FileSharer.Common.csproj", "{2AB5569C-F4AC-438F-B7CA-AAC1A316C5B6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FileSharer.Common", "FileSharer.Common\FileSharer.Common.csproj", "{2AB5569C-F4AC-438F-B7CA-AAC1A316C5B6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FileSharer.Tests", "FileSharer.Tests\FileSharer.Tests.csproj", "{1639827C-90FD-488C-A02E-EE5826FFA348}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{2AB5569C-F4AC-438F-B7CA-AAC1A316C5B6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2AB5569C-F4AC-438F-B7CA-AAC1A316C5B6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2AB5569C-F4AC-438F-B7CA-AAC1A316C5B6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1639827C-90FD-488C-A02E-EE5826FFA348}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1639827C-90FD-488C-A02E-EE5826FFA348}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1639827C-90FD-488C-A02E-EE5826FFA348}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1639827C-90FD-488C-A02E-EE5826FFA348}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

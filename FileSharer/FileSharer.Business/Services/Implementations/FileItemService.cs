@@ -26,35 +26,47 @@ namespace FileSharer.Business.Services.Implementations
 
         public IEnumerable<FileItem> GetAll()
         {
-            var users = _fileItemRepository.GetAll();
+            var files = _fileItemRepository.GetAll();
 
-            return users;
+            return files;
         }
 
         public IEnumerable<FileItem> GetAllByCategoryId(int categoryId)
         {
-            var users = _fileItemRepository.GetAllByCategoryId(categoryId);
+            var files = _fileItemRepository.GetAllByCategoryId(categoryId);
 
-            return users;
+            return files;
         }
 
         public IEnumerable<FileItem> GetAllByUserId(int userId)
         {
-            var users = _fileItemRepository.GetAllByUserId(userId);
+            var files = _fileItemRepository.GetAllByUserId(userId);
 
-            return users;
+            return files;
+        }
+
+        public IEnumerable<FileItem> GetAllByName(string name)
+        {
+           var files = _fileItemRepository.GetAllByName(name);
+
+            return files;
         }
 
         public FileItem GetById(int id)
         {
-            var user = _fileItemRepository.GetById(id);
+            var file = _fileItemRepository.GetById(id);
 
-            return user;
+            return file;
         }
 
         public void Update(int id, FileItem newFileItem)
         {
             _fileItemRepository.Update(id, newFileItem);
+        }
+
+        public void IncrementDownloadsCount(int id)
+        {
+            _fileItemRepository.IncrementDownloadsCount(id);
         }
     }
 }

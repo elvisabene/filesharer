@@ -8,5 +8,9 @@ namespace FileSharer.Data.Repositories.Interfaces
         IEnumerable<FileItem> GetAllByUserId(int userId);
 
         IEnumerable<FileItem> GetAllByCategoryId(int categoryId);
+
+        IEnumerable<FileItem> GetAllByName(string name);
+
+        void IncrementDownloadsCount(int id);
     }
 }

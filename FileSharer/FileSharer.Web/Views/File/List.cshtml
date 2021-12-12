@@ -1,0 +1,68 @@
+﻿@model FileSharer.Web.Models.File.SearchViewModel
+@using FileSharer.Web.Models.File
+
+@{
+    ViewData["Title"] = "List of files";
+    var fileList = ViewData["Files"];
+}
+
+<h1 class="text-dark">Files</h1>
+
+<form class="form-inline mb-md-3" method="post" asp-action="Search">
+    <div class="form-group mx-md-3">
+        <select class="form-control" asp-for="Category" asp-items=@(ViewData["Categories"] as SelectList)></select>
+    </div>
+    <div class="form-group mx-md-3">
+        <input class="form-control" type="text" placeholder="Input file name..." asp-for="FileName" />
+    </div>
+    <div class="form-group mx-md-3">
+        <button class="btn btn-success form-control" type="submit">Search</button>
+    </div>
+</form>
+
+<p>
+    <a class="btn btn-primary" asp-action="Upload">Upload my file</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th> Name </th>
+            <th> Category </th>
+            <th> Author </th>
+            <th> Size(KB) </th>
+            <th> DownloadsCount </th>
+            <th> CreateDate </th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var file in fileList as IEnumerable<FileViewModel>) {
+        <tr>
+            <td>
+                @file.Name
+            </td>
+            <td>
+                @file.Category
+            </td>
+            <td>
+                @file.Author
+            </td>
+            <td>
+                @file.Size
+            </td>
+            <td>
+                @file.DownloadsCount
+            </td>
+            <td>
+                @file.CreateDate.ToShortDateString()
+            </td>
+            <td>
+                @Html.EditButton(User, Roles.OnlyEditors, file.Id)
+                @Html.DetailsButton(file.Id)
+                @Html.DeleteButton(User, Roles.OnlyEditors, file.Id)
+                @await Html.PartialAsync("_ModalDeletePartial", new DeleteItemModel { Id = file.Id, Name = file.Name })
+                @Html.DownloadButton(file.Id, file.Name)
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

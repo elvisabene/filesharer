@@ -4,30 +4,60 @@
     {
         public static class StoredProcedureName
         {
-            public const string AddFileItem = "dbo.spAddFileItem";
+            public static class ForAdd
+            {
+                public const string FileCategory = "dbo.spAddFileCategory";
 
-            public const string AddUser = "dbo.spAddUser";
+                public const string FileExtension = "dbo.spAddFileExtension";
 
-            public const string DeleteFileItem = "dbo.spDeleteFileItem";
+                public const string FileItem = "dbo.spAddFileItem";
 
-            public const string DeleteUser = "dbo.spDeleteUser";
+                public const string Role = "dbo.spAddRole";
 
-            public const string UpdateFileItem = "dbo.spUpdateFileItem";
+                public const string User = "dbo.spAddUser";
+            }
 
-            public const string UpdateUser = "dbo.spUpdateUser";
+            public static class ForDelete
+            {
+                public const string FileCategory = "dbo.spDeleteFileCategory";
+
+                public const string FileExtension = "dbo.spDeleteFileExtension";
+
+                public const string FileItem = "dbo.spDeleteFileItem";
+
+                public const string Role = "dbo.spDeleteRole";
+
+                public const string User = "dbo.spDeleteUser";
+            }
+
+            public static class ForUpdate
+            {
+                public const string DownloadsCount = "dbo.spIncrementDownloadsCount";
+
+                public const string FileCategory = "dbo.spUpdateFileCategory";
+
+                public const string FileExtension = "dbo.spUpdateFileExtension";
+
+                public const string FileItem = "dbo.spUpdateFileItem";
+
+                public const string Role = "dbo.spUpdateRole";
+
+                public const string User = "dbo.spUpdateUser";
+
+            }
         }
 
         public static class ViewName
         {
-            public const string AllFileItems = "dbo.vFileItem";
-
-            public const string AllUsers = "dbo.vUser";
-
-            public const string AllRoles = "dbo.vRole";
+            public const string AllFileCategories = "dbo.vFileCategory";
 
             public const string AllFileExtensions = "dbo.vFileExtension";
 
-            public const string AllFileCategories = "dbo.vFileCategiry";
+            public const string AllFileItems = "dbo.vFileItem";
+
+            public const string AllRoles = "dbo.vRole";
+
+            public const string AllUsers = "dbo.vUser";
         }
     }
 }

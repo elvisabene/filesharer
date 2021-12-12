@@ -1,8 +1,26 @@
 ﻿@{
-    ViewData["Title"] = "Home Page";
+    ViewData["Title"] = "Home";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+<div class="jumbotron">
+    <h1 class="display-4">Welcome to FileSharer</h1>
+    <p class="lead">
+        Share your files with everyone.
+    </p>
+    <hr class="my-4">
+    <p>
+        Aliquam erat volutpat. Curabitur auctor nunc id commodo ornare.
+        Ut accumsan, nulla vitae dictum malesuada, diam eros molestie sem,
+        quis vulputate turpis est ut est. Proin tincidunt, arcu vitae semper
+        molestie, arcu est tempus mi, eu congue ex felis et purus. Duis commodo
+        ac magna ut varius. Vestibulum ante ipsum primis in faucibus orci luctus
+        et ultrices posuere cubilia curae; Maecenas a nibh ante. Lorem ipsum
+        dolor sit amet, consectetur adipiscing elit. In faucibus sem ac lacus
+        sagittis pretium quis nec ipsum. Suspendisse mi ligula, pretium id
+        lobortis in, molestie vitae ligula. Curabitur et scelerisque augue.
+        Donec lorem mi, imperdiet at nibh eget, sagittis accumsan mi.
+    </p>
+    <p class="lead">
+        <a class="btn btn-primary btn-lg" asp-controller="File" asp-action="List" role="button">Get started</a>
+    </p>
 </div>

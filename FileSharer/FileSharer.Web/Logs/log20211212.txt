@@ -1,0 +1,390 @@
+2021-12-12 13:54:00 Microsoft.Hosting.Lifetime [INF] Application started. Press Ctrl+C to shut down.
+2021-12-12 13:54:00 Microsoft.Hosting.Lifetime [INF] Hosting environment: Development
+2021-12-12 13:54:00 Microsoft.Hosting.Lifetime [INF] Content root path: C:\Users\ELViS\Documents\Training\filesharer\FileSharer\FileSharer.Web
+2021-12-12 13:54:00 FileSharer.Web.Controllers.HomeController [INF] Anonymous[Guest] has performed action Home/Index [GET].
+2021-12-12 13:54:03 FileSharer.Web.Controllers.FileController [INF] Anonymous[Guest] has performed action File/List [GET].
+2021-12-12 14:07:13 Microsoft.Hosting.Lifetime [INF] Application started. Press Ctrl+C to shut down.
+2021-12-12 14:07:13 Microsoft.Hosting.Lifetime [INF] Hosting environment: Development
+2021-12-12 14:07:13 Microsoft.Hosting.Lifetime [INF] Content root path: C:\Users\ELViS\Documents\Training\filesharer\FileSharer\FileSharer.Web
+2021-12-12 14:07:13 FileSharer.Web.Controllers.HomeController [INF] Anonymous[Guest] has performed action Home/Index [GET].
+2021-12-12 14:07:15 FileSharer.Web.Controllers.FileController [INF] Anonymous[Guest] has performed action File/List [GET].
+2021-12-12 14:33:00 Microsoft.Hosting.Lifetime [INF] Application started. Press Ctrl+C to shut down.
+2021-12-12 14:33:00 Microsoft.Hosting.Lifetime [INF] Hosting environment: Development
+2021-12-12 14:33:00 Microsoft.Hosting.Lifetime [INF] Content root path: C:\Users\ELViS\Documents\Training\filesharer\FileSharer\FileSharer.Web
+2021-12-12 14:33:00 FileSharer.Web.Controllers.HomeController [INF] Anonymous[Guest] has performed action Home/Index [GET].
+2021-12-12 14:33:01 FileSharer.Web.Controllers.FileController [INF] Anonymous[Guest] has performed action File/List [GET].
+2021-12-12 14:33:06 FileSharer.Web.Controllers.AccountController [INF] Anonymous[Guest] has performed action File/Login [GET].
+2021-12-12 14:33:12 FileSharer.Web.Controllers.FileController [INF] Anonymous[Guest] has performed action File/List [GET].
+2021-12-12 14:33:28 Microsoft.Hosting.Lifetime [INF] Application started. Press Ctrl+C to shut down.
+2021-12-12 14:33:28 Microsoft.Hosting.Lifetime [INF] Hosting environment: Development
+2021-12-12 14:33:28 Microsoft.Hosting.Lifetime [INF] Content root path: C:\Users\ELViS\Documents\Training\filesharer\FileSharer\FileSharer.Web
+2021-12-12 14:33:28 FileSharer.Web.Controllers.HomeController [INF] Anonymous[Guest] has performed action Home/Index [GET].
+2021-12-12 14:33:29 FileSharer.Web.Controllers.FileController [INF] Anonymous[Guest] has performed action File/List [GET].
+2021-12-12 14:36:14 Microsoft.Hosting.Lifetime [INF] Application started. Press Ctrl+C to shut down.
+2021-12-12 14:36:15 Microsoft.Hosting.Lifetime [INF] Hosting environment: Development
+2021-12-12 14:36:15 Microsoft.Hosting.Lifetime [INF] Content root path: C:\Users\ELViS\Documents\Training\filesharer\FileSharer\FileSharer.Web
+2021-12-12 14:36:15 FileSharer.Web.Controllers.HomeController [INF] Anonymous[Guest] has performed action Home/Index [GET].
+2021-12-12 14:36:16 FileSharer.Web.Controllers.FileController [INF] Anonymous[Guest] has performed action File/List [GET].
+2021-12-12 14:39:22 Microsoft.Hosting.Lifetime [INF] Application started. Press Ctrl+C to shut down.
+2021-12-12 14:39:22 Microsoft.Hosting.Lifetime [INF] Hosting environment: Development
+2021-12-12 14:39:22 Microsoft.Hosting.Lifetime [INF] Content root path: C:\Users\ELViS\Documents\Training\filesharer\FileSharer\FileSharer.Web
+2021-12-12 14:39:23 FileSharer.Web.Controllers.HomeController [INF] Anonymous[Guest] has performed action Home/Index [GET].
+2021-12-12 14:39:24 FileSharer.Web.Controllers.FileController [INF] Anonymous[Guest] has performed action File/List [GET].
+2021-12-12 14:40:17 Microsoft.Hosting.Lifetime [INF] Application started. Press Ctrl+C to shut down.
+2021-12-12 14:40:17 Microsoft.Hosting.Lifetime [INF] Hosting environment: Development
+2021-12-12 14:40:17 Microsoft.Hosting.Lifetime [INF] Content root path: C:\Users\ELViS\Documents\Training\filesharer\FileSharer\FileSharer.Web
+2021-12-12 14:40:17 FileSharer.Web.Controllers.HomeController [INF] Anonymous[Guest] has performed action Home/Index [GET].
+2021-12-12 14:40:19 FileSharer.Web.Controllers.FileController [INF] Anonymous[Guest] has performed action File/List [GET].
+2021-12-12 14:46:29 Microsoft.Hosting.Lifetime [INF] Application started. Press Ctrl+C to shut down.
+2021-12-12 14:46:29 Microsoft.Hosting.Lifetime [INF] Hosting environment: Development
+2021-12-12 14:46:29 Microsoft.Hosting.Lifetime [INF] Content root path: C:\Users\ELViS\Documents\Training\filesharer\FileSharer\FileSharer.Web
+2021-12-12 14:46:29 FileSharer.Web.Controllers.HomeController [INF] Anonymous[Guest] has performed action Home/Index [GET].
+2021-12-12 14:46:31 FileSharer.Web.Controllers.FileController [INF] Anonymous[Guest] has performed action File/List [GET].
+2021-12-12 14:53:59 Microsoft.Hosting.Lifetime [INF] Application started. Press Ctrl+C to shut down.
+2021-12-12 14:53:59 Microsoft.Hosting.Lifetime [INF] Hosting environment: Development
+2021-12-12 14:53:59 Microsoft.Hosting.Lifetime [INF] Content root path: C:\Users\ELViS\Documents\Training\filesharer\FileSharer\FileSharer.Web
+2021-12-12 14:53:59 FileSharer.Web.Controllers.HomeController [INF] Anonymous[Guest] has performed action Home/Index [GET].
+2021-12-12 14:55:30 FileSharer.Web.Controllers.FileController [INF] Anonymous[Guest] has performed action File/List [GET].
+2021-12-12 15:14:42 Microsoft.Hosting.Lifetime [INF] Application started. Press Ctrl+C to shut down.
+2021-12-12 15:14:42 Microsoft.Hosting.Lifetime [INF] Hosting environment: Development
+2021-12-12 15:14:42 Microsoft.Hosting.Lifetime [INF] Content root path: C:\Users\ELViS\Documents\Training\filesharer\FileSharer\FileSharer.Web
+2021-12-12 15:14:42 FileSharer.Web.Controllers.HomeController [INF] Anonymous[Guest] has performed action Home/Index [GET].
+2021-12-12 15:14:43 FileSharer.Web.Controllers.FileController [INF] Anonymous[Guest] has performed action File/List [GET].
+2021-12-12 15:14:49 FileSharer.Web.Controllers.AccountController [INF] Anonymous[Guest] has performed action File/Login [GET].
+2021-12-12 15:14:53 FileSharer.Web.Controllers.AccountController [INF] Anonymous[Guest] has performed action Account/Login [POST].
+2021-12-12 15:14:53 FileSharer.Web.Controllers.HomeController [INF] Alex[Editor] has performed action Home/Index [GET].
+2021-12-12 15:14:54 FileSharer.Web.Controllers.FileController [INF] Alex[Editor] has performed action File/List [GET].
+2021-12-12 15:14:55 FileSharer.Web.Controllers.FileController [INF] Alex[Editor] has performed action File/Upload [GET].
+2021-12-12 15:18:49 Microsoft.Hosting.Lifetime [INF] Application started. Press Ctrl+C to shut down.
+2021-12-12 15:18:49 Microsoft.Hosting.Lifetime [INF] Hosting environment: Development
+2021-12-12 15:18:49 Microsoft.Hosting.Lifetime [INF] Content root path: C:\Users\ELViS\Documents\Training\filesharer\FileSharer\FileSharer.Web
+2021-12-12 15:18:50 FileSharer.Web.Controllers.HomeController [INF] Anonymous[Guest] has performed action Home/Index [GET].
+2021-12-12 15:18:52 FileSharer.Web.Controllers.FileController [INF] Anonymous[Guest] has performed action File/List [GET].
+2021-12-12 15:18:53 FileSharer.Web.Controllers.AccountController [INF] Anonymous[Guest] has performed action File/Login [GET].
+2021-12-12 15:18:56 FileSharer.Web.Controllers.AccountController [INF] Anonymous[Guest] has performed action Account/Login [POST].
+2021-12-12 15:18:56 FileSharer.Web.Controllers.HomeController [INF] Alex[Editor] has performed action Home/Index [GET].
+2021-12-12 15:18:58 FileSharer.Web.Controllers.FileController [INF] Alex[Editor] has performed action File/List [GET].
+2021-12-12 15:19:04 FileSharer.Web.Controllers.FileController [INF] Alex[Editor] has performed action File/Upload [GET].
+2021-12-12 15:20:23 Microsoft.Hosting.Lifetime [INF] Application started. Press Ctrl+C to shut down.
+2021-12-12 15:20:23 Microsoft.Hosting.Lifetime [INF] Hosting environment: Development
+2021-12-12 15:20:23 Microsoft.Hosting.Lifetime [INF] Content root path: C:\Users\ELViS\Documents\Training\filesharer\FileSharer\FileSharer.Web
+2021-12-12 15:20:23 FileSharer.Web.Controllers.HomeController [INF] Anonymous[Guest] has performed action Home/Index [GET].
+2021-12-12 15:20:30 FileSharer.Web.Controllers.AccountController [INF] Anonymous[Guest] has performed action File/Login [GET].
+2021-12-12 15:20:33 FileSharer.Web.Controllers.AccountController [INF] Anonymous[Guest] has performed action Account/Login [POST].
+2021-12-12 15:20:33 FileSharer.Web.Controllers.HomeController [INF] Alex[Editor] has performed action Home/Index [GET].
+2021-12-12 15:20:38 FileSharer.Web.Controllers.FileController [INF] Alex[Editor] has performed action File/List [GET].
+2021-12-12 15:20:43 FileSharer.Web.Controllers.FileController [INF] Alex[Editor] has performed action File/Upload [GET].
+2021-12-12 15:22:53 Microsoft.Hosting.Lifetime [INF] Application started. Press Ctrl+C to shut down.
+2021-12-12 15:22:53 Microsoft.Hosting.Lifetime [INF] Hosting environment: Development
+2021-12-12 15:22:53 Microsoft.Hosting.Lifetime [INF] Content root path: C:\Users\ELViS\Documents\Training\filesharer\FileSharer\FileSharer.Web
+2021-12-12 15:22:53 FileSharer.Web.Controllers.HomeController [INF] Anonymous[Guest] has performed action Home/Index [GET].
+2021-12-12 15:22:57 FileSharer.Web.Controllers.AccountController [INF] Anonymous[Guest] has performed action File/Login [GET].
+2021-12-12 15:22:59 FileSharer.Web.Controllers.AccountController [INF] Anonymous[Guest] has performed action Account/Login [POST].
+2021-12-12 15:23:00 FileSharer.Web.Controllers.HomeController [INF] Alex[Editor] has performed action Home/Index [GET].
+2021-12-12 15:23:00 FileSharer.Web.Controllers.FileController [INF] Alex[Editor] has performed action File/List [GET].
+2021-12-12 15:23:02 FileSharer.Web.Controllers.FileController [INF] Alex[Editor] has performed action File/Upload [GET].
+2021-12-12 15:26:46 Microsoft.Hosting.Lifetime [INF] Application started. Press Ctrl+C to shut down.
+2021-12-12 15:26:46 Microsoft.Hosting.Lifetime [INF] Hosting environment: Development
+2021-12-12 15:26:46 Microsoft.Hosting.Lifetime [INF] Content root path: C:\Users\ELViS\Documents\Training\filesharer\FileSharer\FileSharer.Web
+2021-12-12 15:26:46 FileSharer.Web.Controllers.HomeController [INF] Anonymous[Guest] has performed action Home/Index [GET].
+2021-12-12 15:26:47 FileSharer.Web.Controllers.FileController [INF] Anonymous[Guest] has performed action File/List [GET].
+2021-12-12 15:26:49 FileSharer.Web.Controllers.AccountController [INF] Anonymous[Guest] has performed action File/Login [GET].
+2021-12-12 15:26:53 FileSharer.Web.Controllers.AccountController [INF] Anonymous[Guest] has performed action Account/Login [POST].
+2021-12-12 15:26:53 FileSharer.Web.Controllers.HomeController [INF] Alex[Editor] has performed action Home/Index [GET].
+2021-12-12 15:26:54 FileSharer.Web.Controllers.FileController [INF] Alex[Editor] has performed action File/List [GET].
+2021-12-12 15:26:57 FileSharer.Web.Controllers.FileController [INF] Alex[Editor] has performed action File/Upload [GET].
+2021-12-12 15:29:46 Microsoft.Hosting.Lifetime [INF] Application started. Press Ctrl+C to shut down.
+2021-12-12 15:29:46 Microsoft.Hosting.Lifetime [INF] Hosting environment: Development
+2021-12-12 15:29:46 Microsoft.Hosting.Lifetime [INF] Content root path: C:\Users\ELViS\Documents\Training\filesharer\FileSharer\FileSharer.Web
+2021-12-12 15:29:46 FileSharer.Web.Controllers.HomeController [INF] Anonymous[Guest] has performed action Home/Index [GET].
+2021-12-12 15:29:47 FileSharer.Web.Controllers.FileController [INF] Anonymous[Guest] has performed action File/List [GET].
+2021-12-12 15:29:52 FileSharer.Web.Controllers.AccountController [INF] Anonymous[Guest] has performed action File/Login [GET].
+2021-12-12 15:29:55 FileSharer.Web.Controllers.AccountController [INF] Anonymous[Guest] has performed action Account/Login [POST].
+2021-12-12 15:29:55 FileSharer.Web.Controllers.HomeController [INF] Alex[Editor] has performed action Home/Index [GET].
+2021-12-12 15:29:56 FileSharer.Web.Controllers.FileController [INF] Alex[Editor] has performed action File/List [GET].
+2021-12-12 15:30:02 FileSharer.Web.Controllers.FileController [INF] Alex[Editor] has performed action File/Upload [GET].
+2021-12-12 15:31:16 Microsoft.Hosting.Lifetime [INF] Application started. Press Ctrl+C to shut down.
+2021-12-12 15:31:16 Microsoft.Hosting.Lifetime [INF] Hosting environment: Development
+2021-12-12 15:31:16 Microsoft.Hosting.Lifetime [INF] Content root path: C:\Users\ELViS\Documents\Training\filesharer\FileSharer\FileSharer.Web
+2021-12-12 15:31:16 FileSharer.Web.Controllers.HomeController [INF] Anonymous[Guest] has performed action Home/Index [GET].
+2021-12-12 15:31:18 FileSharer.Web.Controllers.AccountController [INF] Anonymous[Guest] has performed action File/Login [GET].
+2021-12-12 15:31:21 FileSharer.Web.Controllers.AccountController [INF] Anonymous[Guest] has performed action Account/Login [POST].
+2021-12-12 15:31:21 FileSharer.Web.Controllers.HomeController [INF] Alex[Editor] has performed action Home/Index [GET].
+2021-12-12 15:31:23 FileSharer.Web.Controllers.FileController [INF] Alex[Editor] has performed action File/List [GET].
+2021-12-12 15:31:25 FileSharer.Web.Controllers.FileController [INF] Alex[Editor] has performed action File/Upload [GET].
+2021-12-12 15:32:34 Microsoft.Hosting.Lifetime [INF] Application started. Press Ctrl+C to shut down.
+2021-12-12 15:32:34 Microsoft.Hosting.Lifetime [INF] Hosting environment: Development
+2021-12-12 15:32:34 Microsoft.Hosting.Lifetime [INF] Content root path: C:\Users\ELViS\Documents\Training\filesharer\FileSharer\FileSharer.Web
+2021-12-12 15:32:34 FileSharer.Web.Controllers.HomeController [INF] Anonymous[Guest] has performed action Home/Index [GET].
+2021-12-12 15:32:35 FileSharer.Web.Controllers.FileController [INF] Anonymous[Guest] has performed action File/List [GET].
+2021-12-12 15:32:37 FileSharer.Web.Controllers.AccountController [INF] Anonymous[Guest] has performed action File/Login [GET].
+2021-12-12 15:32:40 FileSharer.Web.Controllers.AccountController [INF] Anonymous[Guest] has performed action Account/Login [POST].
+2021-12-12 15:32:40 FileSharer.Web.Controllers.HomeController [INF] Alex[Editor] has performed action Home/Index [GET].
+2021-12-12 15:32:41 FileSharer.Web.Controllers.FileController [INF] Alex[Editor] has performed action File/List [GET].
+2021-12-12 15:32:42 FileSharer.Web.Controllers.FileController [INF] Alex[Editor] has performed action File/Upload [GET].
+2021-12-12 15:33:05 Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware [ERR] An unhandled exception has occurred while executing the request.
+2021-12-12 15:33:28 Microsoft.Hosting.Lifetime [INF] Application started. Press Ctrl+C to shut down.
+2021-12-12 15:33:29 Microsoft.Hosting.Lifetime [INF] Hosting environment: Development
+2021-12-12 15:33:29 Microsoft.Hosting.Lifetime [INF] Content root path: C:\Users\ELViS\Documents\Training\filesharer\FileSharer\FileSharer.Web
+2021-12-12 15:33:29 FileSharer.Web.Controllers.HomeController [INF] Anonymous[Guest] has performed action Home/Index [GET].
+2021-12-12 15:33:30 FileSharer.Web.Controllers.FileController [INF] Anonymous[Guest] has performed action File/List [GET].
+2021-12-12 15:33:31 FileSharer.Web.Controllers.AccountController [INF] Anonymous[Guest] has performed action File/Login [GET].
+2021-12-12 15:33:34 FileSharer.Web.Controllers.AccountController [INF] Anonymous[Guest] has performed action Account/Login [POST].
+2021-12-12 15:33:34 FileSharer.Web.Controllers.HomeController [INF] Alex[Editor] has performed action Home/Index [GET].
+2021-12-12 15:33:35 FileSharer.Web.Controllers.FileController [INF] Alex[Editor] has performed action File/List [GET].
+2021-12-12 15:33:36 FileSharer.Web.Controllers.FileController [INF] Alex[Editor] has performed action File/Upload [GET].
+2021-12-12 15:36:53 Microsoft.Hosting.Lifetime [INF] Application started. Press Ctrl+C to shut down.
+2021-12-12 15:36:53 Microsoft.Hosting.Lifetime [INF] Hosting environment: Development
+2021-12-12 15:36:53 Microsoft.Hosting.Lifetime [INF] Content root path: C:\Users\ELViS\Documents\Training\filesharer\FileSharer\FileSharer.Web
+2021-12-12 15:36:53 FileSharer.Web.Controllers.HomeController [INF] Anonymous[Guest] has performed action Home/Index [GET].
+2021-12-12 15:36:54 FileSharer.Web.Controllers.FileController [INF] Anonymous[Guest] has performed action File/List [GET].
+2021-12-12 15:36:55 FileSharer.Web.Controllers.AccountController [INF] Anonymous[Guest] has performed action File/Login [GET].
+2021-12-12 15:36:59 FileSharer.Web.Controllers.AccountController [INF] Anonymous[Guest] has performed action Account/Login [POST].
+2021-12-12 15:36:59 FileSharer.Web.Controllers.HomeController [INF] Alex[Editor] has performed action Home/Index [GET].
+2021-12-12 15:37:00 FileSharer.Web.Controllers.FileController [INF] Alex[Editor] has performed action File/List [GET].
+2021-12-12 15:37:01 FileSharer.Web.Controllers.FileController [INF] Alex[Editor] has performed action File/Upload [GET].
+2021-12-12 15:39:43 Microsoft.Hosting.Lifetime [INF] Application started. Press Ctrl+C to shut down.
+2021-12-12 15:39:43 Microsoft.Hosting.Lifetime [INF] Hosting environment: Development
+2021-12-12 15:39:43 Microsoft.Hosting.Lifetime [INF] Content root path: C:\Users\ELViS\Documents\Training\filesharer\FileSharer\FileSharer.Web
+2021-12-12 15:39:43 FileSharer.Web.Controllers.HomeController [INF] Anonymous[Guest] has performed action Home/Index [GET].
+2021-12-12 15:39:45 FileSharer.Web.Controllers.FileController [INF] Anonymous[Guest] has performed action File/List [GET].
+2021-12-12 15:39:47 FileSharer.Web.Controllers.AccountController [INF] Anonymous[Guest] has performed action File/Login [GET].
+2021-12-12 15:39:53 FileSharer.Web.Controllers.AccountController [INF] Anonymous[Guest] has performed action Account/Login [POST].
+2021-12-12 15:39:53 FileSharer.Web.Controllers.HomeController [INF] Alex[Editor] has performed action Home/Index [GET].
+2021-12-12 15:39:54 FileSharer.Web.Controllers.FileController [INF] Alex[Editor] has performed action File/List [GET].
+2021-12-12 15:39:56 FileSharer.Web.Controllers.FileController [INF] Alex[Editor] has performed action File/Upload [GET].
+2021-12-12 15:40:31 Microsoft.Hosting.Lifetime [INF] Application started. Press Ctrl+C to shut down.
+2021-12-12 15:40:31 Microsoft.Hosting.Lifetime [INF] Hosting environment: Development
+2021-12-12 15:40:31 Microsoft.Hosting.Lifetime [INF] Content root path: C:\Users\ELViS\Documents\Training\filesharer\FileSharer\FileSharer.Web
+2021-12-12 15:40:31 FileSharer.Web.Controllers.HomeController [INF] Anonymous[Guest] has performed action Home/Index [GET].
+2021-12-12 15:40:33 FileSharer.Web.Controllers.FileController [INF] Anonymous[Guest] has performed action File/List [GET].
+2021-12-12 15:40:35 FileSharer.Web.Controllers.AccountController [INF] Anonymous[Guest] has performed action File/Login [GET].
+2021-12-12 15:40:39 FileSharer.Web.Controllers.AccountController [INF] Anonymous[Guest] has performed action Account/Login [POST].
+2021-12-12 15:40:39 FileSharer.Web.Controllers.HomeController [INF] Alex[Editor] has performed action Home/Index [GET].
+2021-12-12 15:40:40 FileSharer.Web.Controllers.FileController [INF] Alex[Editor] has performed action File/List [GET].
+2021-12-12 15:40:41 FileSharer.Web.Controllers.FileController [INF] Alex[Editor] has performed action File/Upload [GET].
+2021-12-12 15:46:12 Microsoft.Hosting.Lifetime [INF] Application started. Press Ctrl+C to shut down.
+2021-12-12 15:46:12 Microsoft.Hosting.Lifetime [INF] Hosting environment: Development
+2021-12-12 15:46:12 Microsoft.Hosting.Lifetime [INF] Content root path: C:\Users\ELViS\Documents\Training\filesharer\FileSharer\FileSharer.Web
+2021-12-12 15:46:13 FileSharer.Web.Controllers.HomeController [INF] Anonymous[Guest] has performed action Home/Index [GET].
+2021-12-12 15:46:14 FileSharer.Web.Controllers.FileController [INF] Anonymous[Guest] has performed action File/List [GET].
+2021-12-12 15:46:15 FileSharer.Web.Controllers.AccountController [INF] Anonymous[Guest] has performed action File/Login [GET].
+2021-12-12 15:46:18 FileSharer.Web.Controllers.AccountController [INF] Anonymous[Guest] has performed action Account/Login [POST].
+2021-12-12 15:46:18 FileSharer.Web.Controllers.HomeController [INF] Alex[Editor] has performed action Home/Index [GET].
+2021-12-12 15:46:21 FileSharer.Web.Controllers.FileController [INF] Alex[Editor] has performed action File/List [GET].
+2021-12-12 15:46:22 FileSharer.Web.Controllers.FileController [INF] Alex[Editor] has performed action File/Upload [GET].
+2021-12-12 15:47:18 Microsoft.Hosting.Lifetime [INF] Application started. Press Ctrl+C to shut down.
+2021-12-12 15:47:18 Microsoft.Hosting.Lifetime [INF] Hosting environment: Development
+2021-12-12 15:47:18 Microsoft.Hosting.Lifetime [INF] Content root path: C:\Users\ELViS\Documents\Training\filesharer\FileSharer\FileSharer.Web
+2021-12-12 15:47:18 FileSharer.Web.Controllers.HomeController [INF] Anonymous[Guest] has performed action Home/Index [GET].
+2021-12-12 15:47:21 FileSharer.Web.Controllers.AccountController [INF] Anonymous[Guest] has performed action File/Login [GET].
+2021-12-12 15:47:24 FileSharer.Web.Controllers.AccountController [INF] Anonymous[Guest] has performed action Account/Login [POST].
+2021-12-12 15:47:24 FileSharer.Web.Controllers.HomeController [INF] Alex[Editor] has performed action Home/Index [GET].
+2021-12-12 15:47:25 FileSharer.Web.Controllers.FileController [INF] Alex[Editor] has performed action File/List [GET].
+2021-12-12 15:47:27 FileSharer.Web.Controllers.FileController [INF] Alex[Editor] has performed action File/Upload [GET].
+2021-12-12 15:59:00 Microsoft.Hosting.Lifetime [INF] Application started. Press Ctrl+C to shut down.
+2021-12-12 15:59:00 Microsoft.Hosting.Lifetime [INF] Hosting environment: Development
+2021-12-12 15:59:00 Microsoft.Hosting.Lifetime [INF] Content root path: C:\Users\ELViS\Documents\Training\filesharer\FileSharer\FileSharer.Web
+2021-12-12 15:59:00 FileSharer.Web.Controllers.HomeController [INF] Anonymous[Guest] has performed action Home/Index [GET].
+2021-12-12 15:59:11 FileSharer.Web.Controllers.FileController [INF] Anonymous[Guest] has performed action File/List [GET].
+2021-12-12 15:59:12 FileSharer.Web.Controllers.AccountController [INF] Anonymous[Guest] has performed action File/Login [GET].
+2021-12-12 15:59:16 FileSharer.Web.Controllers.AccountController [INF] Anonymous[Guest] has performed action Account/Login [POST].
+2021-12-12 15:59:16 FileSharer.Web.Controllers.HomeController [INF] Alex[Editor] has performed action Home/Index [GET].
+2021-12-12 15:59:18 FileSharer.Web.Controllers.FileController [INF] Alex[Editor] has performed action File/List [GET].
+2021-12-12 15:59:19 FileSharer.Web.Controllers.FileController [INF] Alex[Editor] has performed action File/Upload [GET].
+2021-12-12 16:00:46 Microsoft.Hosting.Lifetime [INF] Application started. Press Ctrl+C to shut down.
+2021-12-12 16:00:46 Microsoft.Hosting.Lifetime [INF] Hosting environment: Development
+2021-12-12 16:00:46 Microsoft.Hosting.Lifetime [INF] Content root path: C:\Users\ELViS\Documents\Training\filesharer\FileSharer\FileSharer.Web
+2021-12-12 16:00:47 FileSharer.Web.Controllers.HomeController [INF] Anonymous[Guest] has performed action Home/Index [GET].
+2021-12-12 16:00:58 FileSharer.Web.Controllers.AccountController [INF] Anonymous[Guest] has performed action File/Login [GET].
+2021-12-12 16:01:01 FileSharer.Web.Controllers.AccountController [INF] Anonymous[Guest] has performed action Account/Login [POST].
+2021-12-12 16:01:01 FileSharer.Web.Controllers.HomeController [INF] Alex[Editor] has performed action Home/Index [GET].
+2021-12-12 16:01:03 FileSharer.Web.Controllers.FileController [INF] Alex[Editor] has performed action File/List [GET].
+2021-12-12 16:01:05 FileSharer.Web.Controllers.FileController [INF] Alex[Editor] has performed action File/Upload [GET].
+2021-12-12 16:04:21 Microsoft.Hosting.Lifetime [INF] Application started. Press Ctrl+C to shut down.
+2021-12-12 16:04:21 Microsoft.Hosting.Lifetime [INF] Hosting environment: Development
+2021-12-12 16:04:21 Microsoft.Hosting.Lifetime [INF] Content root path: C:\Users\ELViS\Documents\Training\filesharer\FileSharer\FileSharer.Web
+2021-12-12 16:04:21 FileSharer.Web.Controllers.HomeController [INF] Anonymous[Guest] has performed action Home/Index [GET].
+2021-12-12 16:04:26 FileSharer.Web.Controllers.FileController [INF] Anonymous[Guest] has performed action File/List [GET].
+2021-12-12 16:04:30 FileSharer.Web.Controllers.AccountController [INF] Anonymous[Guest] has performed action File/Login [GET].
+2021-12-12 16:04:34 FileSharer.Web.Controllers.AccountController [INF] Anonymous[Guest] has performed action Account/Login [POST].
+2021-12-12 16:04:34 FileSharer.Web.Controllers.HomeController [INF] Alex[Editor] has performed action Home/Index [GET].
+2021-12-12 16:04:36 FileSharer.Web.Controllers.FileController [INF] Alex[Editor] has performed action File/List [GET].
+2021-12-12 16:04:37 FileSharer.Web.Controllers.FileController [INF] Alex[Editor] has performed action File/Upload [GET].
+2021-12-12 16:07:06 Microsoft.Hosting.Lifetime [INF] Application started. Press Ctrl+C to shut down.
+2021-12-12 16:07:06 Microsoft.Hosting.Lifetime [INF] Hosting environment: Development
+2021-12-12 16:07:06 Microsoft.Hosting.Lifetime [INF] Content root path: C:\Users\ELViS\Documents\Training\filesharer\FileSharer\FileSharer.Web
+2021-12-12 16:07:06 FileSharer.Web.Controllers.HomeController [INF] Anonymous[Guest] has performed action Home/Index [GET].
+2021-12-12 16:07:07 FileSharer.Web.Controllers.FileController [INF] Anonymous[Guest] has performed action File/List [GET].
+2021-12-12 16:07:09 FileSharer.Web.Controllers.AccountController [INF] Anonymous[Guest] has performed action File/Login [GET].
+2021-12-12 16:07:12 FileSharer.Web.Controllers.AccountController [INF] Anonymous[Guest] has performed action Account/Login [POST].
+2021-12-12 16:07:12 FileSharer.Web.Controllers.HomeController [INF] Alex[Editor] has performed action Home/Index [GET].
+2021-12-12 16:07:13 FileSharer.Web.Controllers.FileController [INF] Alex[Editor] has performed action File/List [GET].
+2021-12-12 16:07:15 FileSharer.Web.Controllers.FileController [INF] Alex[Editor] has performed action File/Upload [GET].
+2021-12-12 16:07:42 FileSharer.Web.Controllers.FileController [INF] Alex[Editor] has performed action File/Upload [POST].
+2021-12-12 16:07:42 FileSharer.Web.Controllers.FileController [INF] Alex[Editor] has performed action File/List [GET].
+2021-12-12 16:12:29 Microsoft.Hosting.Lifetime [INF] Application started. Press Ctrl+C to shut down.
+2021-12-12 16:12:29 Microsoft.Hosting.Lifetime [INF] Hosting environment: Development
+2021-12-12 16:12:29 Microsoft.Hosting.Lifetime [INF] Content root path: C:\Users\ELViS\Documents\Training\filesharer\FileSharer\FileSharer.Web
+2021-12-12 16:12:29 FileSharer.Web.Controllers.HomeController [INF] Anonymous[Guest] has performed action Home/Index [GET].
+2021-12-12 16:12:32 FileSharer.Web.Controllers.FileController [INF] Anonymous[Guest] has performed action File/List [GET].
+2021-12-12 16:12:34 FileSharer.Web.Controllers.AccountController [INF] Anonymous[Guest] has performed action File/Login [GET].
+2021-12-12 16:12:36 FileSharer.Web.Controllers.AccountController [INF] Anonymous[Guest] has performed action Account/Login [POST].
+2021-12-12 16:12:36 FileSharer.Web.Controllers.HomeController [INF] Alex[Editor] has performed action Home/Index [GET].
+2021-12-12 16:12:37 FileSharer.Web.Controllers.FileController [INF] Alex[Editor] has performed action File/List [GET].
+2021-12-12 16:12:39 FileSharer.Web.Controllers.FileController [INF] Alex[Editor] has performed action File/Upload [GET].
+2021-12-12 16:12:50 Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware [ERR] An unhandled exception has occurred while executing the request.
+2021-12-12 16:13:13 Microsoft.Hosting.Lifetime [INF] Application started. Press Ctrl+C to shut down.
+2021-12-12 16:13:13 Microsoft.Hosting.Lifetime [INF] Hosting environment: Development
+2021-12-12 16:13:13 Microsoft.Hosting.Lifetime [INF] Content root path: C:\Users\ELViS\Documents\Training\filesharer\FileSharer\FileSharer.Web
+2021-12-12 16:13:13 FileSharer.Web.Controllers.HomeController [INF] Anonymous[Guest] has performed action Home/Index [GET].
+2021-12-12 16:13:14 FileSharer.Web.Controllers.AccountController [INF] Anonymous[Guest] has performed action File/Login [GET].
+2021-12-12 16:13:17 FileSharer.Web.Controllers.AccountController [INF] Anonymous[Guest] has performed action Account/Login [POST].
+2021-12-12 16:13:17 FileSharer.Web.Controllers.HomeController [INF] Alex[Editor] has performed action Home/Index [GET].
+2021-12-12 16:13:19 FileSharer.Web.Controllers.FileController [INF] Alex[Editor] has performed action File/List [GET].
+2021-12-12 16:13:20 FileSharer.Web.Controllers.FileController [INF] Alex[Editor] has performed action File/Upload [GET].
+2021-12-12 16:13:58 FileSharer.Web.Controllers.FileController [INF] Alex[Editor] has performed action File/Upload [POST].
+2021-12-12 16:13:58 FileSharer.Web.Controllers.FileController [INF] Alex[Editor] has performed action File/List [GET].
+2021-12-12 16:16:15 FileSharer.Web.Controllers.FileController [INF] Alex[Editor] has performed action File/List [GET].
+2021-12-12 16:31:40 Microsoft.Hosting.Lifetime [INF] Application started. Press Ctrl+C to shut down.
+2021-12-12 16:31:40 Microsoft.Hosting.Lifetime [INF] Hosting environment: Development
+2021-12-12 16:31:40 Microsoft.Hosting.Lifetime [INF] Content root path: C:\Users\ELViS\Documents\Training\filesharer\FileSharer\FileSharer.Web
+2021-12-12 16:31:40 FileSharer.Web.Controllers.HomeController [INF] Anonymous[Guest] has performed action Home/Index [GET].
+2021-12-12 16:31:45 FileSharer.Web.Controllers.AccountController [INF] Anonymous[Guest] has performed action File/Login [GET].
+2021-12-12 16:31:49 FileSharer.Web.Controllers.AccountController [INF] Anonymous[Guest] has performed action Account/Login [POST].
+2021-12-12 16:31:49 FileSharer.Web.Controllers.HomeController [INF] Alex[Editor] has performed action Home/Index [GET].
+2021-12-12 16:31:51 FileSharer.Web.Controllers.FileController [INF] Alex[Editor] has performed action File/List [GET].
+2021-12-12 16:36:33 Microsoft.Hosting.Lifetime [INF] Application started. Press Ctrl+C to shut down.
+2021-12-12 16:36:33 Microsoft.Hosting.Lifetime [INF] Hosting environment: Development
+2021-12-12 16:36:33 Microsoft.Hosting.Lifetime [INF] Content root path: C:\Users\ELViS\Documents\Training\filesharer\FileSharer\FileSharer.Web
+2021-12-12 16:36:33 FileSharer.Web.Controllers.HomeController [INF] Anonymous[Guest] has performed action Home/Index [GET].
+2021-12-12 16:36:39 FileSharer.Web.Controllers.AccountController [INF] Anonymous[Guest] has performed action File/Login [GET].
+2021-12-12 16:36:43 FileSharer.Web.Controllers.AccountController [INF] Anonymous[Guest] has performed action Account/Login [POST].
+2021-12-12 16:36:43 FileSharer.Web.Controllers.HomeController [INF] Alex[Editor] has performed action Home/Index [GET].
+2021-12-12 16:36:47 FileSharer.Web.Controllers.FileController [INF] Alex[Editor] has performed action File/List [GET].
+2021-12-12 16:40:35 Microsoft.Hosting.Lifetime [INF] Application started. Press Ctrl+C to shut down.
+2021-12-12 16:40:35 Microsoft.Hosting.Lifetime [INF] Hosting environment: Development
+2021-12-12 16:40:35 Microsoft.Hosting.Lifetime [INF] Content root path: C:\Users\ELViS\Documents\Training\filesharer\FileSharer\FileSharer.Web
+2021-12-12 16:40:35 FileSharer.Web.Controllers.HomeController [INF] Anonymous[Guest] has performed action Home/Index [GET].
+2021-12-12 16:40:37 FileSharer.Web.Controllers.FileController [INF] Anonymous[Guest] has performed action File/List [GET].
+2021-12-12 16:40:38 FileSharer.Web.Controllers.AccountController [INF] Anonymous[Guest] has performed action File/Login [GET].
+2021-12-12 16:40:39 FileSharer.Web.Controllers.FileController [INF] Anonymous[Guest] has performed action File/List [GET].
+2021-12-12 16:41:10 FileSharer.Web.Controllers.FileController [INF] Anonymous[Guest] has performed action File/List [GET].
+2021-12-12 16:59:00 Microsoft.Hosting.Lifetime [INF] Application started. Press Ctrl+C to shut down.
+2021-12-12 16:59:00 Microsoft.Hosting.Lifetime [INF] Hosting environment: Development
+2021-12-12 16:59:00 Microsoft.Hosting.Lifetime [INF] Content root path: C:\Users\ELViS\Documents\Training\filesharer\FileSharer\FileSharer.Web
+2021-12-12 16:59:00 FileSharer.Web.Controllers.HomeController [INF] Anonymous[Guest] has performed action Home/Index [GET].
+2021-12-12 16:59:07 FileSharer.Web.Controllers.FileController [INF] Anonymous[Guest] has performed action File/List [GET].
+2021-12-12 17:08:54 Microsoft.Hosting.Lifetime [INF] Application started. Press Ctrl+C to shut down.
+2021-12-12 17:08:54 Microsoft.Hosting.Lifetime [INF] Hosting environment: Development
+2021-12-12 17:08:54 Microsoft.Hosting.Lifetime [INF] Content root path: C:\Users\ELViS\Documents\Training\filesharer\FileSharer\FileSharer.Web
+2021-12-12 17:08:54 FileSharer.Web.Controllers.HomeController [INF] Anonymous[Guest] has performed action Home/Index [GET].
+2021-12-12 17:08:56 FileSharer.Web.Controllers.FileController [INF] Anonymous[Guest] has performed action File/List [GET].
+2021-12-12 17:08:59 FileSharer.Web.Controllers.FileController [INF] Anonymous[Guest] has performed action File/List [GET].
+2021-12-12 17:09:06 FileSharer.Web.Controllers.FileController [INF] Anonymous[Guest] has performed action File/List [GET].
+2021-12-12 17:20:07 Microsoft.Hosting.Lifetime [INF] Application started. Press Ctrl+C to shut down.
+2021-12-12 17:20:07 Microsoft.Hosting.Lifetime [INF] Hosting environment: Development
+2021-12-12 17:20:07 Microsoft.Hosting.Lifetime [INF] Content root path: C:\Users\ELViS\Documents\Training\filesharer\FileSharer\FileSharer.Web
+2021-12-12 17:20:07 FileSharer.Web.Controllers.HomeController [INF] Anonymous[Guest] has performed action Home/Index [GET].
+2021-12-12 17:20:10 FileSharer.Web.Controllers.FileController [INF] Anonymous[Guest] has performed action File/List [GET].
+2021-12-12 17:22:15 Microsoft.Hosting.Lifetime [INF] Application started. Press Ctrl+C to shut down.
+2021-12-12 17:22:15 Microsoft.Hosting.Lifetime [INF] Hosting environment: Development
+2021-12-12 17:22:15 Microsoft.Hosting.Lifetime [INF] Content root path: C:\Users\ELViS\Documents\Training\filesharer\FileSharer\FileSharer.Web
+2021-12-12 17:22:15 FileSharer.Web.Controllers.HomeController [INF] Anonymous[Guest] has performed action Home/Index [GET].
+2021-12-12 17:22:16 FileSharer.Web.Controllers.FileController [INF] Anonymous[Guest] has performed action File/List [GET].
+2021-12-12 17:25:12 Microsoft.Hosting.Lifetime [INF] Application started. Press Ctrl+C to shut down.
+2021-12-12 17:25:12 Microsoft.Hosting.Lifetime [INF] Hosting environment: Development
+2021-12-12 17:25:12 Microsoft.Hosting.Lifetime [INF] Content root path: C:\Users\ELViS\Documents\Training\filesharer\FileSharer\FileSharer.Web
+2021-12-12 17:25:12 FileSharer.Web.Controllers.HomeController [INF] Anonymous[Guest] has performed action Home/Index [GET].
+2021-12-12 17:25:14 FileSharer.Web.Controllers.FileController [INF] Anonymous[Guest] has performed action File/List [GET].
+2021-12-12 17:25:59 Microsoft.Hosting.Lifetime [INF] Application started. Press Ctrl+C to shut down.
+2021-12-12 17:25:59 Microsoft.Hosting.Lifetime [INF] Hosting environment: Development
+2021-12-12 17:25:59 Microsoft.Hosting.Lifetime [INF] Content root path: C:\Users\ELViS\Documents\Training\filesharer\FileSharer\FileSharer.Web
+2021-12-12 17:25:59 FileSharer.Web.Controllers.HomeController [INF] Anonymous[Guest] has performed action Home/Index [GET].
+2021-12-12 17:26:00 FileSharer.Web.Controllers.FileController [INF] Anonymous[Guest] has performed action File/List [GET].
+2021-12-12 17:26:37 FileSharer.Web.Controllers.FileController [INF] Anonymous[Guest] has performed action File/List [GET].
+2021-12-12 17:30:46 Microsoft.Hosting.Lifetime [INF] Application started. Press Ctrl+C to shut down.
+2021-12-12 17:30:46 Microsoft.Hosting.Lifetime [INF] Hosting environment: Development
+2021-12-12 17:30:46 Microsoft.Hosting.Lifetime [INF] Content root path: C:\Users\ELViS\Documents\Training\filesharer\FileSharer\FileSharer.Web
+2021-12-12 17:30:46 FileSharer.Web.Controllers.HomeController [INF] Anonymous[Guest] has performed action Home/Index [GET].
+2021-12-12 17:30:49 FileSharer.Web.Controllers.FileController [INF] Anonymous[Guest] has performed action File/List [GET].
+2021-12-12 17:30:55 FileSharer.Web.Controllers.FileController [INF] Anonymous[Guest] has performed action File/List [GET].
+2021-12-12 17:33:20 Microsoft.Hosting.Lifetime [INF] Application started. Press Ctrl+C to shut down.
+2021-12-12 17:33:20 Microsoft.Hosting.Lifetime [INF] Hosting environment: Development
+2021-12-12 17:33:20 Microsoft.Hosting.Lifetime [INF] Content root path: C:\Users\ELViS\Documents\Training\filesharer\FileSharer\FileSharer.Web
+2021-12-12 17:33:20 FileSharer.Web.Controllers.HomeController [INF] Anonymous[Guest] has performed action Home/Index [GET].
+2021-12-12 17:33:21 FileSharer.Web.Controllers.FileController [INF] Anonymous[Guest] has performed action File/List [GET].
+2021-12-12 17:33:26 FileSharer.Web.Controllers.FileController [INF] Anonymous[Guest] has performed action File/List [GET].
+2021-12-12 17:34:11 Microsoft.Hosting.Lifetime [INF] Application started. Press Ctrl+C to shut down.
+2021-12-12 17:34:11 Microsoft.Hosting.Lifetime [INF] Hosting environment: Development
+2021-12-12 17:34:11 Microsoft.Hosting.Lifetime [INF] Content root path: C:\Users\ELViS\Documents\Training\filesharer\FileSharer\FileSharer.Web
+2021-12-12 17:34:11 FileSharer.Web.Controllers.HomeController [INF] Anonymous[Guest] has performed action Home/Index [GET].
+2021-12-12 17:34:13 FileSharer.Web.Controllers.AccountController [INF] Anonymous[Guest] has performed action File/Login [GET].
+2021-12-12 17:34:18 FileSharer.Web.Controllers.AccountController [INF] Anonymous[Guest] has performed action Account/Login [POST].
+2021-12-12 17:34:18 FileSharer.Web.Controllers.HomeController [INF] Alex[Editor] has performed action Home/Index [GET].
+2021-12-12 17:34:20 FileSharer.Web.Controllers.FileController [INF] Alex[Editor] has performed action File/List [GET].
+2021-12-12 17:34:23 FileSharer.Web.Controllers.FileController [INF] Alex[Editor] has performed action File/Delete [POST].
+2021-12-12 17:34:23 FileSharer.Web.Controllers.FileController [INF] Alex[Editor] has performed action File/List [GET].
+2021-12-12 17:34:26 FileSharer.Web.Controllers.FileController [INF] Alex[Editor] has performed action File/Delete [POST].
+2021-12-12 17:34:26 FileSharer.Web.Controllers.FileController [INF] Alex[Editor] has performed action File/List [GET].
+2021-12-12 17:34:29 FileSharer.Web.Controllers.FileController [INF] Alex[Editor] has performed action File/Delete [POST].
+2021-12-12 17:34:29 FileSharer.Web.Controllers.FileController [INF] Alex[Editor] has performed action File/List [GET].
+2021-12-12 17:34:34 FileSharer.Web.Controllers.FileController [INF] Alex[Editor] has performed action File/Delete [POST].
+2021-12-12 17:34:34 FileSharer.Web.Controllers.FileController [INF] Alex[Editor] has performed action File/List [GET].
+2021-12-12 17:34:37 FileSharer.Web.Controllers.FileController [INF] Alex[Editor] has performed action File/Delete [POST].
+2021-12-12 17:34:37 FileSharer.Web.Controllers.FileController [INF] Alex[Editor] has performed action File/List [GET].
+2021-12-12 17:34:40 FileSharer.Web.Controllers.FileController [INF] Alex[Editor] has performed action File/Delete [POST].
+2021-12-12 17:34:40 FileSharer.Web.Controllers.FileController [INF] Alex[Editor] has performed action File/List [GET].
+2021-12-12 17:34:45 FileSharer.Web.Controllers.FileController [INF] Alex[Editor] has performed action File/Delete [POST].
+2021-12-12 17:34:45 FileSharer.Web.Controllers.FileController [INF] Alex[Editor] has performed action File/List [GET].
+2021-12-12 17:34:47 FileSharer.Web.Controllers.FileController [INF] Alex[Editor] has performed action File/Delete [POST].
+2021-12-12 17:34:47 FileSharer.Web.Controllers.FileController [INF] Alex[Editor] has performed action File/List [GET].
+2021-12-12 17:34:50 FileSharer.Web.Controllers.FileController [INF] Alex[Editor] has performed action File/Delete [POST].
+2021-12-12 17:34:50 FileSharer.Web.Controllers.FileController [INF] Alex[Editor] has performed action File/List [GET].
+2021-12-12 17:34:53 FileSharer.Web.Controllers.FileController [INF] Alex[Editor] has performed action File/Delete [POST].
+2021-12-12 17:34:53 FileSharer.Web.Controllers.FileController [INF] Alex[Editor] has performed action File/List [GET].
+2021-12-12 17:34:56 FileSharer.Web.Controllers.FileController [INF] Alex[Editor] has performed action File/Delete [POST].
+2021-12-12 17:34:56 FileSharer.Web.Controllers.FileController [INF] Alex[Editor] has performed action File/List [GET].
+2021-12-12 17:34:59 FileSharer.Web.Controllers.FileController [INF] Alex[Editor] has performed action File/Delete [POST].
+2021-12-12 17:34:59 FileSharer.Web.Controllers.FileController [INF] Alex[Editor] has performed action File/List [GET].
+2021-12-12 17:35:02 FileSharer.Web.Controllers.FileController [INF] Alex[Editor] has performed action File/Delete [POST].
+2021-12-12 17:35:02 FileSharer.Web.Controllers.FileController [INF] Alex[Editor] has performed action File/List [GET].
+2021-12-12 17:35:05 FileSharer.Web.Controllers.FileController [INF] Alex[Editor] has performed action File/Delete [POST].
+2021-12-12 17:35:05 FileSharer.Web.Controllers.FileController [INF] Alex[Editor] has performed action File/List [GET].
+2021-12-12 17:35:10 FileSharer.Web.Controllers.FileController [INF] Alex[Editor] has performed action File/Delete [POST].
+2021-12-12 17:35:10 FileSharer.Web.Controllers.FileController [INF] Alex[Editor] has performed action File/List [GET].
+2021-12-12 17:35:14 FileSharer.Web.Controllers.FileController [INF] Alex[Editor] has performed action File/Delete [POST].
+2021-12-12 17:35:14 FileSharer.Web.Controllers.FileController [INF] Alex[Editor] has performed action File/List [GET].
+2021-12-12 17:35:17 FileSharer.Web.Controllers.FileController [INF] Alex[Editor] has performed action File/Delete [POST].
+2021-12-12 17:35:17 FileSharer.Web.Controllers.FileController [INF] Alex[Editor] has performed action File/List [GET].
+2021-12-12 17:35:20 FileSharer.Web.Controllers.FileController [INF] Alex[Editor] has performed action File/Delete [POST].
+2021-12-12 17:35:20 FileSharer.Web.Controllers.FileController [INF] Alex[Editor] has performed action File/List [GET].
+2021-12-12 17:35:22 FileSharer.Web.Controllers.FileController [INF] Alex[Editor] has performed action File/Delete [POST].
+2021-12-12 17:35:22 FileSharer.Web.Controllers.FileController [INF] Alex[Editor] has performed action File/List [GET].
+2021-12-12 17:35:25 FileSharer.Web.Controllers.FileController [INF] Alex[Editor] has performed action File/Delete [POST].
+2021-12-12 17:35:25 FileSharer.Web.Controllers.FileController [INF] Alex[Editor] has performed action File/List [GET].
+2021-12-12 17:35:29 FileSharer.Web.Controllers.FileController [INF] Alex[Editor] has performed action File/Delete [POST].
+2021-12-12 17:35:29 FileSharer.Web.Controllers.FileController [INF] Alex[Editor] has performed action File/List [GET].
+2021-12-12 17:38:06 Microsoft.Hosting.Lifetime [INF] Application started. Press Ctrl+C to shut down.
+2021-12-12 17:38:06 Microsoft.Hosting.Lifetime [INF] Hosting environment: Development
+2021-12-12 17:38:06 Microsoft.Hosting.Lifetime [INF] Content root path: C:\Users\ELViS\Documents\Training\filesharer\FileSharer\FileSharer.Web
+2021-12-12 17:38:06 FileSharer.Web.Controllers.HomeController [INF] Anonymous[Guest] has performed action Home/Index [GET].
+2021-12-12 17:38:10 FileSharer.Web.Controllers.FileController [INF] Anonymous[Guest] has performed action File/List [GET].
+2021-12-12 17:39:08 FileSharer.Web.Controllers.AccountController [INF] Anonymous[Guest] has performed action File/Login [GET].
+2021-12-12 17:39:12 FileSharer.Web.Controllers.AccountController [INF] Anonymous[Guest] has performed action Account/Login [POST].
+2021-12-12 17:39:12 FileSharer.Web.Controllers.HomeController [INF] Alex[Editor] has performed action Home/Index [GET].
+2021-12-12 17:39:16 FileSharer.Web.Controllers.FileController [INF] Alex[Editor] has performed action File/List [GET].
+2021-12-12 17:39:58 Microsoft.Hosting.Lifetime [INF] Application started. Press Ctrl+C to shut down.
+2021-12-12 17:39:58 Microsoft.Hosting.Lifetime [INF] Hosting environment: Development
+2021-12-12 17:39:58 Microsoft.Hosting.Lifetime [INF] Content root path: C:\Users\ELViS\Documents\Training\filesharer\FileSharer\FileSharer.Web
+2021-12-12 17:39:58 FileSharer.Web.Controllers.HomeController [INF] Anonymous[Guest] has performed action Home/Index [GET].
+2021-12-12 17:40:02 FileSharer.Web.Controllers.FileController [INF] Anonymous[Guest] has performed action File/List [GET].
+2021-12-12 17:40:04 FileSharer.Web.Controllers.FileController [INF] Anonymous[Guest] has performed action File/Details [GET].
+2021-12-12 17:40:07 FileSharer.Web.Controllers.FileController [INF] Anonymous[Guest] has performed action File/List [GET].
+2021-12-12 17:43:29 FileSharer.Web.Controllers.FileController [INF] Anonymous[Guest] has performed action File/List [GET].
+2021-12-12 17:44:26 Microsoft.Hosting.Lifetime [INF] Application started. Press Ctrl+C to shut down.
+2021-12-12 17:44:26 Microsoft.Hosting.Lifetime [INF] Hosting environment: Development
+2021-12-12 17:44:26 Microsoft.Hosting.Lifetime [INF] Content root path: C:\Users\ELViS\Documents\Training\filesharer\FileSharer\FileSharer.Web
+2021-12-12 17:44:26 FileSharer.Web.Controllers.HomeController [INF] Anonymous[Guest] has performed action Home/Index [GET].
+2021-12-12 17:44:31 FileSharer.Web.Controllers.FileController [INF] Anonymous[Guest] has performed action File/List [GET].
+2021-12-12 17:44:43 FileSharer.Web.Controllers.FileController [INF] Anonymous[Guest] has performed action File/List [GET].
