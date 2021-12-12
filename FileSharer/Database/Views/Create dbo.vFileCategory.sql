@@ -1,6 +1,3 @@
-USE FileSharerDb
-GO
-
 CREATE VIEW dbo.vFileCategory AS
 SELECT ft.Id AS Id,
 ft.Name AS Name

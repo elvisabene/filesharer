@@ -1,6 +1,3 @@
-USE FileSharerDb
-GO
-
 CREATE VIEW dbo.vFileItem AS
 SELECT fi.Id AS Id,
 fi.Name AS Name,
