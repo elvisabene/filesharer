@@ -37,8 +37,8 @@
             <td>
                 @if (user.Role != Roles.Admin)
                 {
-                    <a class="btn btn-outline-warning m-1" asp-action="Edit" asp-route-id="@user.Id">Edit</a>
-                    <button class="btn btn-outline-danger m-1" data-toggle="modal" data-target="#modal-@user.Id">Delete</button>
+                    @Html.EditButton(User, Roles.Admin, user.Id)
+                    @Html.DeleteButton(User, Roles.Admin, user.Id)
                     @await Html.PartialAsync("_ModalDeletePartial", new DeleteItemModel { Id = user.Id, Name = user.Name })
                 }
             </td>

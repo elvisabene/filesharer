@@ -27,12 +27,12 @@
                 <span asp-validation-for="NewDescription" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <input type="submit" value="Save" class="btn btn-outline-success" />
+                <input type="submit" value="Save" class="btn btn-outline-success mx-md-2" />
             </div>
         </form>
     </div>
 </div>
 
 <div >
-    <a class="btn btn-outline-primary" asp-action="List">Back to List</a>
+    @Html.BackToListButton("File")
 </div>

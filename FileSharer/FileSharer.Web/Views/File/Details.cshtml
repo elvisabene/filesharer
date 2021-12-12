@@ -60,7 +60,7 @@
     </div>
     </div>
 <div>
-    <a class="btn btn-outline-primary btn-lg rounded-circle mx-md-2" href="#">&#8659;</a>
-    <a class="btn btn-outline-warning text-dark mx-md-2" asp-action="Edit" asp-route-id="@Model.Id">Edit</a>
-    <a class="btn btn-outline-primary mx-md-2" asp-action="List">Back to List</a>
+    @Html.DownloadButton(Model.Id)
+    @Html.EditButton(User, Roles.OnlyEditors, Model.Id)
+    @Html.BackToListButton("File")
 </div>

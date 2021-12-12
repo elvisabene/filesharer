@@ -26,25 +26,12 @@
 <table class="table">
     <thead>
         <tr>
-            <th>
-                Name
-            </th>
-            <th>
-                Category
-            </th>
-            <th>
-                Author
-            </th>
-            <th>
-                Size(KB)
-            </th>
-            <th>
-                DownloadsCount
-            </th>
-            <th>
-                CreateDate
-            </th>
-            <th></th>
+            <th> Name </th>
+            <th> Category </th>
+            <th> Author </th>
+            <th> Size(KB) </th>
+            <th> DownloadsCount </th>
+            <th> CreateDate </th>
         </tr>
     </thead>
     <tbody>
@@ -69,11 +56,11 @@
                 @file.CreateDate.ToShortDateString()
             </td>
             <td>
-                <a class="btn btn-outline-warning text-dark m-1" asp-action="Edit" asp-route-id="@file.Id">Edit</a>
-                <a class="btn btn-outline-info m-1" asp-action="Details" asp-route-id="@file.Id">Details</a>
-                <button class="btn btn-outline-danger m-1" data-toggle="modal" data-target="#modal-@file.Id">Delete</button>
+                @Html.EditButton(User, Roles.OnlyEditors, file.Id)
+                @Html.DetailsButton(file.Id)
+                @Html.DeleteButton(User, Roles.OnlyEditors, file.Id)
                 @await Html.PartialAsync("_ModalDeletePartial", new DeleteItemModel { Id = file.Id, Name = file.Name })
-                <a href="#" class="btn btn-outline-primary rounded-circle m-1">&#8659;</a>
+                @Html.DownloadButton(file.Id)
             </td>
         </tr>
 }
