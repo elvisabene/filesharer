@@ -266,7 +266,7 @@ namespace FileSharer.Web.Controllers
 
         private FileItem CreateFile(UploadFileViewModel uploadFile, FileCategory category, FileExtension extension)
         {
-            var name = uploadFile.File.FileName.Split('.')[^1];
+            var name = uploadFile.File.FileName.Split('.')[0];
             var userId = int.Parse(User.Claims.Single(
                      claim => claim.Type == CustomClaimTypes.Id).Value);
 
@@ -275,7 +275,7 @@ namespace FileSharer.Web.Controllers
                  Name = name,
                  FileCategoryId = category.Id,
                  FileExtensionId = extension.Id,
-                 Description = uploadFile.Description,
+                 Description = uploadFile.Description ?? string.Empty,
  
                  UserId = userId,
             };
