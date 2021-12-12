@@ -85,7 +85,7 @@ namespace FileSharer.Business.Services.Implementations
             {
                 Name = name,
                 Email = email,
-                RoleId = Default.RoleId,
+                RoleId = Defaults.RoleId,
                 PasswordHash = passwordHash,
             };
 

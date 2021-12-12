@@ -1,4 +1,5 @@
-﻿using FileSharer.Web.Models;
+﻿using FileSharer.Web.Helpers.LoggingHelpers;
+using FileSharer.Web.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using System.Diagnostics;
@@ -9,18 +10,18 @@ namespace FileSharer.Web.Controllers
     {
         private readonly ILogger<HomeController> _logger;
 
-        public HomeController(ILogger<HomeController> logger)
+        private readonly ILogHelper _logHelper;
+
+        public HomeController(ILogger<HomeController> logger, ILogHelper logHelper)
         {
             _logger = logger;
+            _logHelper = logHelper;
         }
 
+        [HttpGet]
         public IActionResult Index()
         {
-            return View();
-        }
-
-        public IActionResult Privacy()
-        {
+            _logger.LogInformation(_logHelper.GetUserActionString(User, "Home", nameof(Index)));
             return View();
         }
 

@@ -1,9 +1,11 @@
 ﻿using FileSharer.Business.Services.Interfaces;
 using FileSharer.Common.Constants;
 using FileSharer.Common.Entities;
+using FileSharer.Web.Helpers.LoggingHelpers;
 using FileSharer.Web.Models.User;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Logging;
 using System.Collections.Generic;
 
 namespace FileSharer.Web.Controllers
@@ -15,10 +17,20 @@ namespace FileSharer.Web.Controllers
 
         private readonly IRoleService _roleService;
 
-        public UserController(IUserService userService, IRoleService roleService)
+        private readonly ILogger<HomeController> _logger;
+
+        private readonly ILogHelper _logHelper;
+
+        public UserController(
+            IUserService userService,
+            IRoleService roleService,
+            ILogger<HomeController> logger,
+            ILogHelper logHelper)
         {
             _userService = userService;
             _roleService = roleService;
+            _logger = logger;
+            _logHelper = logHelper;
         }
 
         [HttpGet]
@@ -41,6 +53,9 @@ namespace FileSharer.Web.Controllers
                 userModels.Add(userModel);
             }
 
+            _logger.LogInformation(
+               _logHelper.GetUserActionString(User, "User", nameof(List)));
+
             return View(userModels);
         }
 
@@ -58,6 +73,9 @@ namespace FileSharer.Web.Controllers
                 Role = role.Name,
             };
 
+            _logger.LogInformation(
+               _logHelper.GetUserActionString(User, "User", nameof(Edit)));
+
             return View(editModel);
         }
 
@@ -72,7 +90,7 @@ namespace FileSharer.Web.Controllers
             var userByEmail = _userService.GetByEmail(editModel.Email);
             if (userByEmail != null && userByEmail.Id != editModel.Id)
             {
-                ModelState.AddModelError("", ErrorMessage.UserAlreadyExists);
+                ModelState.AddModelError("", ErrorMessages.UserAlreadyExists);
             }
 
             var role = _roleService.GetByName(editModel.Role);
@@ -86,6 +104,9 @@ namespace FileSharer.Web.Controllers
 
             _userService.Update(editModel.Id, user);
 
+            _logger.LogInformation(
+               _logHelper.GetUserActionString(User, "User", nameof(Edit), "POST"));
+
             return RedirectToAction(nameof(List));
         }
 
@@ -93,6 +114,9 @@ namespace FileSharer.Web.Controllers
         public IActionResult Delete(int id)
         {
             _userService.Delete(id);
+
+            _logger.LogInformation(
+               _logHelper.GetUserActionString(User, "User", nameof(Delete), "POST"));
 
             return RedirectToAction(nameof(List));
         }

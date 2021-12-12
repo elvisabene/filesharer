@@ -6,12 +6,12 @@ namespace FileSharer.Web.Models.File
 {
     public class UploadFileViewModel
     {
-        [Required (ErrorMessage = ErrorMessage.RequiredField)]
+        [Required (ErrorMessage = ErrorMessages.RequiredField)]
         public string Category { get; set; }
 
         public string Description { get; set; }
 
-        [Required (ErrorMessage = ErrorMessage.NoFileSelected)]
+        [Required (ErrorMessage = ErrorMessages.NoFileSelected)]
         public IFormFile File { get; set; }
     }
 }

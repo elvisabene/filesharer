@@ -5,10 +5,10 @@ namespace FileSharer.Web.Models.Account
 {
     public class LoginViewModel
     {
-        [Required(ErrorMessage = ErrorMessage.RequiredField)]
+        [Required(ErrorMessage = ErrorMessages.RequiredField)]
         public string Email { get; set; }
 
-        [Required(ErrorMessage = ErrorMessage.RequiredField)]
+        [Required(ErrorMessage = ErrorMessages.RequiredField)]
         public string Password { get; set; }
     }
 }

@@ -5,17 +5,17 @@ namespace FileSharer.Web.Models.Account
 {
     public class RegisterViewModel
     {
-        [Required(ErrorMessage = ErrorMessage.RequiredField)]
+        [Required(ErrorMessage = ErrorMessages.RequiredField)]
         public string Name { get; set; }
 
-        [Required(ErrorMessage = ErrorMessage.RequiredField)]
+        [Required(ErrorMessage = ErrorMessages.RequiredField)]
         public string Email { get; set; }
 
-        [Required(ErrorMessage = ErrorMessage.RequiredField)]
+        [Required(ErrorMessage = ErrorMessages.RequiredField)]
         public string Password { get; set; }
 
-        [Required(ErrorMessage = ErrorMessage.RequiredField)]
-        [Compare("Password", ErrorMessage = ErrorMessage.PasswordsDontMatch)]
+        [Required(ErrorMessage = ErrorMessages.RequiredField)]
+        [Compare("Password", ErrorMessage = ErrorMessages.PasswordsDontMatch)]
         public string ConfirmPassword { get; set; }
     }
 }

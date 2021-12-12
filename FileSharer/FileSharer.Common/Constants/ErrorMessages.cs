@@ -1,6 +1,6 @@
 ﻿namespace FileSharer.Common.Constants
 {
-    public static class ErrorMessage
+    public static class ErrorMessages
     {
         public const string RequiredField = "Field is required.";
 

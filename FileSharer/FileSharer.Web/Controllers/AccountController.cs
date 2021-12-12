@@ -1,10 +1,12 @@
 ﻿using FileSharer.Business.Services.Interfaces;
 using FileSharer.Common.Constants;
 using FileSharer.Common.Entities;
+using FileSharer.Web.Helpers.LoggingHelpers;
 using FileSharer.Web.Models.Account;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Logging;
 using System.Threading.Tasks;
 
 namespace FileSharer.Web.Controllers
@@ -13,14 +15,26 @@ namespace FileSharer.Web.Controllers
     {
         private IAccountService _accountService;
 
-        public AccountController(IAccountService userManager)
+        private readonly ILogger<AccountController> _logger;
+
+        private readonly ILogHelper _logHelper;
+
+        public AccountController(
+            IAccountService userManager,
+            ILogger<AccountController> logger,
+            ILogHelper logHelper)
         {
             _accountService = userManager;
+            _logger = logger;
+            _logHelper = logHelper;
         }
 
         [HttpGet]
         public IActionResult Login()
         {
+            _logger.LogInformation(
+               _logHelper.GetUserActionString(User, "File", nameof(Login)));
+
             return View();
         }
 
@@ -36,11 +50,14 @@ namespace FileSharer.Web.Controllers
 
             if (!_accountService.IsUserExists(model.Email, model.Password, out user))
             {
-                ModelState.AddModelError("", ErrorMessage.IncorrectCredentials);
+                ModelState.AddModelError("", ErrorMessages.IncorrectCredentials);
                 return View();
             }
 
             await _accountService.Authenticate(user, HttpContext);
+
+            _logger.LogInformation(
+               _logHelper.GetUserActionString(User, "Account", nameof(Login), "POST"));
 
             return RedirectToAction("Index", "Home");
         }
@@ -48,6 +65,9 @@ namespace FileSharer.Web.Controllers
         [HttpGet]
         public IActionResult Register()
         {
+            _logger.LogInformation(
+               _logHelper.GetUserActionString(User, "Account", nameof(Register)));
+
             return View();
         }
 
@@ -61,7 +81,7 @@ namespace FileSharer.Web.Controllers
 
             if (_accountService.IsUserExists(model.Email))
             {
-                ModelState.AddModelError("", ErrorMessage.UserAlreadyExists);
+                ModelState.AddModelError("", ErrorMessages.UserAlreadyExists);
 
                 return View();
             }
@@ -70,6 +90,9 @@ namespace FileSharer.Web.Controllers
 
             await _accountService.Authenticate(user, HttpContext);
 
+            _logger.LogInformation(
+               _logHelper.GetUserActionString(User, "Account", nameof(Register), "POST"));
+
             return RedirectToAction("Index", "Home");
         }
 
@@ -77,6 +100,9 @@ namespace FileSharer.Web.Controllers
         public async Task<IActionResult> Logout()
         {
             await HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
+
+            _logger.LogInformation(
+               _logHelper.GetUserActionString(User, "Account", nameof(Logout)));
 
             return RedirectToAction("Index", "Home");
         }

@@ -1,10 +1,12 @@
 ﻿using FileSharer.Business.Services.Interfaces;
 using FileSharer.Common.Constants;
 using FileSharer.Common.Entities;
+using FileSharer.Web.Helpers.LoggingHelpers;
 using FileSharer.Web.Models.File;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.Extensions.Logging;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -21,21 +23,32 @@ namespace FileSharer.Web.Controllers
 
         private readonly IUserService _userService;
 
+        private readonly ILogger<FileController> _logger;
+
+        private readonly ILogHelper _logHelper;
+
         public FileController(
             IFileItemService fileItemService,
             IFileCategoryService fileCategoryService,
             IService<FileExtension> fileExtensionService,
-            IUserService userService)
+            IUserService userService,
+            ILogger<FileController> logger,
+            ILogHelper logHelper)
         {
             _fileItemService = fileItemService;
             _fileCategoryService = fileCategoryService;
             _fileExtensionService = fileExtensionService;
             _userService = userService;
+            _logger = logger;
+            _logHelper = logHelper;
         }
         
         [HttpGet]
         public IActionResult Upload()
         {
+            _logger.LogInformation(
+                _logHelper.GetUserActionString(User, "File", nameof(Upload)));
+
             return View();
         }
 
@@ -51,7 +64,7 @@ namespace FileSharer.Web.Controllers
 
             if (category is null)
             {
-                ModelState.AddModelError("", ErrorMessage.NoSuchCategory);
+                ModelState.AddModelError("", ErrorMessages.NoSuchCategory);
 
                 return View();
             }
@@ -62,13 +75,16 @@ namespace FileSharer.Web.Controllers
 
             if (extensionFromDatabase is null)
             {
-                ModelState.AddModelError("", ErrorMessage.UnsupportedFormat);
+                ModelState.AddModelError("", ErrorMessages.UnsupportedFormat);
 
                 return View();
             }
 
             var file = CreateFile(uploadModel, category, extensionFromDatabase);
             _fileItemService.Add(file);
+
+            _logger.LogInformation(
+                _logHelper.GetUserActionString(User, "File", nameof(Upload), "POST"));
 
             return RedirectToAction(nameof(List));
         }
@@ -79,6 +95,9 @@ namespace FileSharer.Web.Controllers
         {
             var file = _fileItemService.GetById(id);
             var fileModel = MapToModel(file);
+
+            _logger.LogInformation(
+                _logHelper.GetUserActionString(User, "File", nameof(Details)));
 
             return View(fileModel);
         }
@@ -100,6 +119,9 @@ namespace FileSharer.Web.Controllers
             var selectList = GetSelectCategoryList();
             ViewData["Categories"] = selectList;
 
+            _logger.LogInformation(
+                _logHelper.GetUserActionString(User, "File", nameof(List)));
+
             return View();
         }
 
@@ -109,6 +131,9 @@ namespace FileSharer.Web.Controllers
         {
             var file = _fileItemService.GetById(id);
             var editFileModel = MapToEditModel(file);
+
+            _logger.LogInformation(
+                _logHelper.GetUserActionString(User, "File", nameof(Edit)));
 
             return View(editFileModel);
         }
@@ -126,13 +151,16 @@ namespace FileSharer.Web.Controllers
 
             if (category is null)
             {
-                ModelState.AddModelError("", ErrorMessage.NoSuchCategory);
+                ModelState.AddModelError("", ErrorMessages.NoSuchCategory);
 
                 return View(editFileModel);
             }
 
             var file = MapToFile(editFileModel);
             _fileItemService.Update(editFileModel.Id, file);
+
+            _logger.LogInformation(
+                _logHelper.GetUserActionString(User, "File", nameof(Edit), "POST"));
 
             return RedirectToAction(nameof(List));
         }
@@ -142,6 +170,9 @@ namespace FileSharer.Web.Controllers
         public IActionResult Delete(int id)
         {
             _fileItemService.Delete(id);
+
+            _logger.LogInformation(
+                _logHelper.GetUserActionString(User, "File", nameof(Delete), "POST"));
 
             return RedirectToAction(nameof(List));
         }
@@ -179,6 +210,9 @@ namespace FileSharer.Web.Controllers
             ViewData["Files"] = fileModels;
             var selectList = GetSelectCategoryList();
             ViewData["Categories"] = selectList;
+
+            _logger.LogInformation(
+                _logHelper.GetUserActionString(User, "File", nameof(Search), "POST"));
 
             return View(nameof(List));
         }

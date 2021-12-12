@@ -7,10 +7,10 @@ namespace FileSharer.Web.Models.File
     {
         public int Id { get; set; }
         
-        [Required (ErrorMessage = ErrorMessage.RequiredField)]
+        [Required (ErrorMessage = ErrorMessages.RequiredField)]
         public string NewName { get; set; }
 
-        [Required  (ErrorMessage = ErrorMessage.RequiredField)]
+        [Required  (ErrorMessage = ErrorMessages.RequiredField)]
         public string NewCategory { get; set; }
         
         public string NewDescription { get; set; }
